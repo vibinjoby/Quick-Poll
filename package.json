@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/vibinjoby/Quick-Poll/issues"
   },
-  "homepage": "https://github.com/vibinjoby/Quick-Poll#readme"
+  "homepage": "https://github.com/vibinjoby/Quick-Poll#readme",
+  "dependencies": {
+    "gsap": "^3.3.1"
+  }
 }
