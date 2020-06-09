@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -8,21 +9,71 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script src="js/index.js"></script>
     <link rel="stylesheet" href="css/index.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id"
+        content="154042886989-glimbsej3eu67l02disiaq150o5g4drr.apps.googleusercontent.com">
+</head>
+
+<body>
     <div id="loginContainer">
-      <img src="assets/images/login_btn.png" class="loginImg"></img> &nbsp;
-      <p id="loginTxt">Log in</p>
+        <img src="assets/images/login_btn.png" class="loginImg"></img> &nbsp;
+        <p id="loginTxt">Log in</p>
     </div>
     <div id="logoContainer">
-        <img src="assets/images/logo_small.png" class="logoImg"/>
-        <img src="assets/images/QuickPoll_Logo.png" class="logoImg"/>
+        <img src="assets/images/logo_small.png" class="logoImg" />
+        <img src="assets/images/QuickPoll_Logo.png" class="logoImg" />
     </div>
-    <div id="contentContainer">
-        <img src="assets/images/logo_large.png" id="logoLarge"/>
-        <p id="content">Design polls, collect responses, and analyze the data like a pro</p>
-        <button class="pollBtn">Create Poll</button> 
-        <button class="pollBtn">View Poll</button>
-    </div>
-  </body>
+    <div class="container">
+        <div id="contentContainer">
+            <img src="assets/images/logo_large.png" id="logoLarge" />
+            <p id="content">Design polls, collect responses, and analyze the data like a pro</p>
+            <button class="pollBtn">Create Poll</button>
+            <button class="pollBtn">View Poll</button>
+        </div>
+        <div id="signinContainer">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="onSignin()" id="login">Log in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="onSignUp()" id="signup">Sign up</a>
+                </li>
+            </ul>
+            <div id="signin-tab">
+                <div class="form-group" style="margin-top: 20px;">
+                    <input type="text" class="form-control" id="email" placeholder="Email or Username">
+                </div>
+                <button type="button" class="btn" id="loginBtn">Next</button>
+                <div class="or-div">
+                    <p>Or</p>
+                </div>
+                <div class="g-signin2" data-width="300" data-height="40" data-longtitle="true">
+                </div>
+            </div>
+
+            <div id="signup-tab">
+                <div class="g-signin2" data-width="300" data-height="40" data-longtitle="true">
+                </div>
+                <div class="or-div">
+                    <p>Or</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="email" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="email" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="email" placeholder="Last Name">
+                </div>
+                <button type="button" class="btn" id="loginBtn">Create Account</button>
+            </div>
+        </div>
+</body>
+
 </html>

@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,18 +12,22 @@ body {
   background-attachment: fixed;
 }
 
+.container {
+  position: relative;
+}
+
 #loginContainer {
   cursor: pointer;
   display: flex;
   float: right;
-  margin-top: 5px;
+  margin-top: 20px;
   margin-right: 20px;
-  align-items: center;
-  justify-content: space-between;
 }
 
 #logoContainer {
+  cursor: pointer;
   margin-left: 20px;
+  width: 220px;
 }
 
 .logoImg {
@@ -44,12 +54,14 @@ body {
 #contentContainer img {
   height: 149px;
   width: 216px;
+  margin-bottom: 40px;
 }
 
 #contentContainer p {
   color: #fff;
   font-family: "Proxima-Nova-Alt-Light";
   font-size: 40px;
+  margin-bottom: 30px;
 }
 
 @font-face {
@@ -76,8 +88,62 @@ body {
 .pollBtn:hover {
   background: #fff;
   border: 0;
-
   color: #1e87f0;
+}
+
+#signinContainer {
+  background: #fff;
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  padding: 40px 50px;
+}
+
+.or-div p {
+  border-radius: 20px;
+  color: white;
+  display: inline-block;
+  padding: 6px 10px;
+  background: #007acc;
+}
+
+.or-div {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  position: relative;
+}
+.or-div:after {
+  position: absolute;
+  display: block;
+  height: 1px;
+  background-color: grey;
+  content: "";
+  top: 16px;
+  z-index: -1;
+  left: -40px;
+  right: -40px;
+}
+
+#loginBtn {
+  border-radius: 0;
+  width: 100%;
+  background: #007acc;
+  color: white;
+}
+
+#signup-tab {
+  display: none;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+
+.form-group {
+  margin-top: 20px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -91,5 +157,8 @@ body {
     margin-top: 40px;
     height: 90px;
     width: 140px;
+  }
+  #signinContainer {
+    left: 5%;
   }
 }
