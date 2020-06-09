@@ -160,5 +160,7 @@ body {
   }
   #signinContainer {
     left: 5%;
+    top: 10%;
+    padding: 20px;
   }
 }
