@@ -16,7 +16,6 @@ const onLogoClick = () => {
 };
 
 const onLoginClick = () => {
-  let tl = gsap.timeline({ paused: false });
   gsap.to("#contentContainer", 1, { y: 200, autoAlpha: 0 });
   gsap.from("#signinContainer", 1, {
     y: -200,

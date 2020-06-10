@@ -85,6 +85,10 @@ body {
   border: 2px solid white;
 }
 
+.pollBtn:focus {
+  outline: none;
+}
+
 .pollBtn:hover {
   background: #fff;
   border: 0;
@@ -98,6 +102,11 @@ body {
   top: 20%;
   left: 30%;
   padding: 40px 50px;
+  text-align: center;
+}
+
+.mobile-break {
+  display: none;
 }
 
 .or-div p {
@@ -162,5 +171,8 @@ body {
     left: 5%;
     top: 10%;
     padding: 20px;
+  }
+  .mobile-break {
+    display: block;
   }
 }
