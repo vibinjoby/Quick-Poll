@@ -3,5 +3,5 @@ window.onload = function() {
 };
 
 const onLogoClick = () => {
-  window.location.href = "/";
+  window.location.href = "/index.html";
 };
