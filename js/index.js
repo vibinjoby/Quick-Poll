@@ -35,9 +35,7 @@ const onSignin = () => {
   });
   document.getElementById("signin-tab").style.display = "block";
 
-  if (document.querySelector(".nav-item a.active") !== null) {
-    document.querySelector(".nav-item a.active").classList.remove("active");
-  }
+  document.querySelector(".nav-item a.active").classList.remove("active");
   document.getElementById("login").classList.add("active");
 };
 
@@ -51,8 +49,6 @@ const onSignUp = () => {
   });
   document.getElementById("signup-tab").style.display = "block";
 
-  if (document.querySelector(".nav-item a.active") !== null) {
-    document.querySelector(".nav-item a.active").classList.remove("active");
-  }
+  document.querySelector(".nav-item a.active").classList.remove("active");
   document.getElementById("signup").classList.add("active");
 };
