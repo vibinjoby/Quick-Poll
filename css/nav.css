@@ -61,6 +61,24 @@
   list-style: none;
 }
 
+.modal {
+  text-align: center;
+}
+
+.modal::before {
+  content: "";
+  display: inline-block;
+  height: 80%;
+  margin-right: -4px;
+  vertical-align: middle;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
 @media only screen and (max-width: 1000px) {
   #hamburgerDropDown {
     display: block;
