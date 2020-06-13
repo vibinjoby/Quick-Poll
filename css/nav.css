@@ -1,0 +1,71 @@
+#hamburgerDropDown {
+  display: none;
+}
+
+#nav-placeholder {
+  background: #208cf1;
+  height: 74px;
+}
+
+#logoContainer {
+  cursor: pointer;
+  margin-left: 20px;
+  width: 220px;
+}
+
+#loginContainer {
+  cursor: pointer;
+  display: flex;
+  float: right;
+  margin-top: 21px;
+  margin-right: 5px;
+}
+
+#loginContainer a {
+  text-decoration: none;
+}
+
+#loginContainer a {
+  font-family: Proxima-Nova-Alt-Light;
+  color: #fff;
+  font-size: 23px;
+}
+
+.dropdown-item {
+  font-family: Proxima-Nova-Alt-Light;
+  color: #fff;
+  font-size: 20px;
+}
+
+.logoImg {
+  height: 30px;
+  margin-top: 25px;
+}
+
+.loginImg {
+  width: 30px;
+  height: 30px;
+  margin-top: -3px;
+}
+
+#nav-dropdown {
+  margin-top: 20px;
+  background: #208cf1;
+}
+
+#nav-dropdown a {
+  font-family: Proxima-Nova-Alt-Light;
+  color: #fff;
+  align-items: center;
+  font-size: 18px;
+  list-style: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  #hamburgerDropDown {
+    display: block;
+  }
+  #navbarDropdown {
+    display: none;
+  }
+}

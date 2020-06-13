@@ -11,6 +11,10 @@ window.onload = function() {
   });
 };
 
+const onCreatePoll = () => {
+  window.location.href = "/createpoll.html";
+};
+
 const onLogoClick = () => {
   window.location.href = "/";
 };
