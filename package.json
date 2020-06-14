@@ -2,7 +2,7 @@
   "name": "QuickPoll",
   "version": "1.0.0",
   "description": "",
-  "main": "service.js",
+  "main": "index.html",
   "scripts": {
     "start": "node service.js"
   },
@@ -17,8 +17,5 @@
     "url": "https://github.com/vibinjoby/Quick-Poll/issues"
   },
   "homepage": "https://github.com/vibinjoby/Quick-Poll#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "gsap": "^3.3.1"
-  }
+  "dependencies": {}
 }
