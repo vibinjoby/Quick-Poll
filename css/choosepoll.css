@@ -45,8 +45,13 @@
 
 @media only screen and (max-width: 1000px) {
   .choose-poll-container {
-    margin-top: 80px;
-    width: 100%;
+    width: 60%;
+  }
+  .choose-poll-container h1 {
+    font-size: 30px;
+  }
+  .card-container {
+    display: block;
   }
   .card {
     margin: 10px;
