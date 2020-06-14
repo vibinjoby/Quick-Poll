@@ -2,7 +2,7 @@
   "name": "QuickPoll",
   "version": "1.0.0",
   "description": "",
-  "main": "/public",
+  "main": "service.js",
   "scripts": {
     "start": "node service.js"
   },
