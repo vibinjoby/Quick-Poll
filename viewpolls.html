@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quick Poll</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/viewpolls.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <!--Navigation scripts-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("navbar.html");
+        });
+    </script>
+    <!--End of Navigation scripts-->
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    <!--end of Navigation bar-->
+    <button class="join-poll-btn" data-toggle="modal" data-target="#joinpollmodal">JOIN POLL</button>
+
+    <div class="modal fade" id="joinpollmodal" tabindex="-1" role="dialog" aria-labelledby="joinpollModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" id="popup-content">
+                <div class="modal-header" id="header">
+                    <h5 class="modal-title"> Join Poll</h5>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="pollLink" aria-describedby="pollLink"
+                        placeholder="Paste your poll link here">
+                </div>
+                <div class="modal-footer" id="footer">
+                    <button type="button" class="join-modal-btn">JOIN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

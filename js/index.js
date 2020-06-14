@@ -15,6 +15,10 @@ const onCreatePoll = () => {
   window.location.href = "/choosepoll.html";
 };
 
+const onViewPolls = () => {
+  window.location.href = "/viewpolls.html";
+};
+
 const onLogoClick = () => {
   window.location.href = "/";
 };
