@@ -45,7 +45,9 @@
 
 @media only screen and (max-width: 1000px) {
   .choose-poll-container {
-    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
   }
   .choose-poll-container h1 {
     font-size: 30px;
