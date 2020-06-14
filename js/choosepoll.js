@@ -1,5 +1,5 @@
 window.onload = function() {
-  this.gsap.from(".choose-poll-container > h1", {
+  gsap.from(".choose-poll-container > h1", {
     duration: 0.5,
     z: -200,
     opacity: 0,

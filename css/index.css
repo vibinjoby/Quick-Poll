@@ -66,10 +66,8 @@ body {
 
 @font-face {
   font-family: "Proxima-Nova-Alt-Light";
-  src: url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Light.woff")
-      format("woff"),
-    url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Light.ttf")
-      format("opentype");
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Light.woff") format("woff"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Light.ttf") format("opentype");
 }
 
 .pollBtn {

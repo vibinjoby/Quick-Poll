@@ -1,16 +1,13 @@
 @font-face {
   font-family: "Proxima-Nova-Bold";
-  src: url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Bold.otf")
-      format("otf"),
-    url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Bold.otf")
-      format("opentype");
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Bold.otf") format("otf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Bold.otf") format("opentype");
 }
 
 @font-face {
   font-family: "Proxima-Nova-Regular";
-  src: url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Regular.otf")
-      format("otf"),
-    url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Regular.otf")
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Regular.otf") format("otf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Regular.otf")
       format("opentype");
 }
 
@@ -30,8 +27,16 @@
 }
 
 .card {
+  cursor: pointer;
+  transition: transform 0.5s; /* Animation */
   margin: 20px;
   border: 1px solid lightgrey;
+}
+
+.card:hover {
+  transform: scale(
+    1.1
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .card-body,
