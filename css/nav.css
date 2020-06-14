@@ -38,7 +38,7 @@
 }
 
 .logoImg {
-  height: 30px;
+  height: 20px;
   margin-top: 25px;
 }
 
@@ -89,5 +89,9 @@
   }
   #navbarDropdown {
     display: none;
+  }
+  #loginContainer {
+    margin-top: 16px;
+    margin-right: 15px;
   }
 }
