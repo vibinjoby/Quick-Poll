@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="css/index.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <meta name="google-signin-client_id"
         content="154042886989-glimbsej3eu67l02disiaq150o5g4drr.apps.googleusercontent.com">
 </head>
@@ -44,15 +46,14 @@
                 </li>
             </ul>
             <div id="signin-tab">
-                <form>
+                <form id="signin-form" class="form" onsubmit="signin()">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="signin_email" placeholder="Email or Username"
-                            required>
+                        <input type="email" class="form-control" id="signin_email" placeholder="Email or Username">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="signin_pwd" placeholder="Password" required>
+                        <input type="password" class="form-control" id="signin_pwd" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn" id="loginBtn">Next</button>
+                    <button type="submit" class="loginBtn">Next</button>
                 </form>
 
                 <div class="or-div">
@@ -68,19 +69,34 @@
                 <div class="or-div">
                     <p>Or</p>
                 </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" id="pwd" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="fname" placeholder="First Name">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="lname" placeholder="Last Name">
-                </div>
-                <button type="button" class="btn" id="loginBtn">Create Account</button>
+                <form id="form" class="form" onsubmit="signup()">
+                    <div class="form-group">
+                        <input type="text" placeholder="Username" id="username" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" id="email" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" id="password" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" id="confirm_password" />
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
+                    </div>
+                    <button type="submit" class="loginBtn">Create Account</button>
+                </form>
+
             </div>
         </div>
 </body>

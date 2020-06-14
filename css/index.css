@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap");
+
 *,
 *:before,
 *:after {
@@ -31,7 +34,7 @@ body {
 }
 
 .logoImg {
-  height: 30px;
+  height: 20px;
   margin-top: 25px;
 }
 
@@ -97,7 +100,7 @@ body {
   background: #fff;
   display: none;
   position: absolute;
-  top: 20%;
+  top: 8%;
   left: 30%;
   padding: 40px 50px;
   text-align: center;
@@ -134,11 +137,16 @@ body {
   right: -40px;
 }
 
-#loginBtn {
+.loginBtn {
   border-radius: 0;
   width: 100%;
   background: #007acc;
   color: white;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
 }
 
 #signup-tab {
@@ -173,4 +181,61 @@ body {
   .mobile-break {
     display: block;
   }
+}
+
+.form-group label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+
+.form-group input:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form-group.success input {
+  border-color: #2ecc71;
+}
+
+.form-group.error input {
+  border-color: #e74c3c;
+}
+
+.form-group i {
+  visibility: hidden;
+  position: absolute;
+  margin-top: -29px;
+  /*top: 40px;*/
+  right: 6px;
+}
+
+.form-group.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+
+.form-group.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.form-group small {
+  color: #e74c3c;
+  position: absolute;
+  left: 0;
+  visibility: hidden;
+}
+
+.form-group.error small {
+  visibility: visible;
 }
