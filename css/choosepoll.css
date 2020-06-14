@@ -1,0 +1,51 @@
+@font-face {
+  font-family: "Proxima-Nova-Bold";
+  src: url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Bold.otf")
+      format("otf"),
+    url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Bold.otf")
+      format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima-Nova-Regular";
+  src: url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Regular.otf")
+      format("otf"),
+    url("../assets/fonts/ProximaNovaA-Light/ProximaNova-Regular.otf")
+      format("opentype");
+}
+
+.choose-poll-container h1 {
+  font-family: Proxima-Nova-Bold;
+}
+
+.choose-poll-container {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  margin-top: 40px;
+}
+
+.card-container {
+  display: flex;
+}
+
+.card {
+  margin: 20px;
+  border: 1px solid lightgrey;
+}
+
+.card-body,
+.card-img-top {
+  border: 1px solid lightgrey;
+}
+
+.card-text {
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .choose-poll-container {
+    margin-top: 80px;
+    width: 100%;
+  }
+}

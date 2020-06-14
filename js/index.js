@@ -12,7 +12,7 @@ window.onload = function() {
 };
 
 const onCreatePoll = () => {
-  window.location.href = "/createpoll.html";
+  window.location.href = "/choosepoll.html";
 };
 
 const onLogoClick = () => {

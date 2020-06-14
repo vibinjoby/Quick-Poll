@@ -61,6 +61,10 @@
   list-style: none;
 }
 
+#nav-dropdown a:hover {
+  color: #208cf1;
+}
+
 .modal {
   text-align: center;
 }
