@@ -44,10 +44,17 @@
                 </li>
             </ul>
             <div id="signin-tab">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="signin_email" placeholder="Email or Username">
-                </div>
-                <button type="button" class="btn" id="loginBtn">Next</button>
+                <form>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="signin_email" placeholder="Email or Username"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="signin_pwd" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn" id="loginBtn">Next</button>
+                </form>
+
                 <div class="or-div">
                     <p>Or</p>
                 </div>
