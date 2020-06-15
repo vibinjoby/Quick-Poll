@@ -152,12 +152,23 @@ function setSuccessFor(input) {
   const formControl = input.parentElement;
   formControl.className = "form-group success";
 }
+/**
+ * Loading popup functions
+ */
+const showLoadingPopup = () => {
+  document.getElementById("loading-placeholder").style.display = "block";
+};
+
+const hideLoadingPopup = () => {
+  document.getElementById("loading-placeholder").style.display = "none";
+};
 
 const signin = () => {
   const formData = {
     emailId: document.getElementById("signin_email").value,
     password: document.getElementById("signin_pwd").value
   };
+  showLoadingPopup();
   fetch("https://quick-poll-server.herokuapp.com/signin/", {
     method: "POST",
     headers: {
@@ -168,10 +179,13 @@ const signin = () => {
   })
     .then(res => res.json())
     .then(data => {
+      hideLoadingPopup();
       const { username } = data;
       username && showToast(`Welcome ${username}`);
       //reset the contents of form
       username && resetFormData("signin-form");
+
+      !username && showToast("Incorrect email/ Password");
     });
 };
 
@@ -185,6 +199,7 @@ const signup = () => {
     email: document.getElementById("email").value,
     password: document.getElementById("password").value
   };
+  showLoadingPopup();
   fetch("https://quick-poll-server.herokuapp.com/signup/createAccount", {
     method: "POST",
     headers: {
@@ -195,6 +210,7 @@ const signup = () => {
   })
     .then(res => res.json())
     .then(data => {
+      hideLoadingPopup();
       showToast(data.output);
       resetFormData("form");
 
@@ -209,6 +225,7 @@ const signup = () => {
 
 //Check if the email is already registered to an account
 const checkEmailExists = () => {
+  showLoadingPopup();
   return (
     document.getElementById("email").value &&
     fetch(
@@ -218,6 +235,7 @@ const checkEmailExists = () => {
     )
       .then(response => response.json())
       .then(data => {
+        hideLoadingPopup();
         if (data.output === "Email already exists") {
           setErrorFor(email, data.output);
           return true;

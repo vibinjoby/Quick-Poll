@@ -17,9 +17,18 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <meta name="google-signin-client_id"
         content="154042886989-glimbsej3eu67l02disiaq150o5g4drr.apps.googleusercontent.com">
+    <!--Loading scripts-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#loading-placeholder").load("loading.html");
+        });
+    </script>
+    <!--End of loading scripts-->
 </head>
 
 <body>
+    <div id=loading-placeholder></div>
     <div id="loginContainer">
         <img src="assets/images/login_btn.png" class="loginImg"></img> &nbsp;
         <p id="loginTxt">Log in</p>
