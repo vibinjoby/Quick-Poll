@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <meta name="google-signin-client_id"
         content="154042886989-glimbsej3eu67l02disiaq150o5g4drr.apps.googleusercontent.com">
 </head>
@@ -46,12 +47,18 @@
                 </li>
             </ul>
             <div id="signin-tab">
-                <form id="signin-form" class="form" onsubmit="signin()">
+                <form id="signin-form" class="form">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="signin_email" placeholder="Email or Username">
+                        <input type="email" id="signin_email" placeholder="Email or Username">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="signin_pwd" placeholder="Password">
+                        <input type="password" id="signin_pwd" placeholder="Password">
+                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <small>Error message</small>
                     </div>
                     <button type="submit" class="loginBtn">Next</button>
                 </form>
@@ -69,7 +76,7 @@
                 <div class="or-div">
                     <p>Or</p>
                 </div>
-                <form id="form" class="form" onsubmit="signup()">
+                <form id="form" class="form">
                     <div class="form-group">
                         <input type="text" placeholder="Username" id="username" />
                         <i class="fas fa-check-circle"></i>
