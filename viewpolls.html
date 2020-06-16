@@ -11,6 +11,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/viewpolls.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script src="js/viewpolls.js"></script>
     <!--Navigation scripts-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -22,13 +23,38 @@
         });
     </script>
     <!--End of Navigation scripts-->
+
+    <!--Loading scripts-->
+    <script>
+        $(function () {
+            $("#loading-placeholder").load("loading.html");
+        });
+    </script>
+    <!--End of loading scripts-->
 </head>
 
 <body>
+    <div id=loading-placeholder></div>
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
     <!--end of Navigation bar-->
-    <button class="join-poll-btn" data-toggle="modal" data-target="#joinpollmodal">JOIN POLL</button>
+    <header id="poll-head">
+        <p>PUBLIC POLLS</p>
+        <div id="btn"><button class="join-poll-btn" data-toggle="modal" data-target="#joinpollmodal">JOIN POLL</button>
+        </div>
+        <hr class="divider" />
+    </header>
+
+    <main>
+        <div>
+            <p>BROWSE POLLS</p>
+        </div>
+
+        <div id="card-container">
+        </div>
+
+    </main>
+
 
     <div class="modal fade" id="joinpollmodal" tabindex="-1" role="dialog" aria-labelledby="joinpollModalLabel"
         aria-hidden="true">

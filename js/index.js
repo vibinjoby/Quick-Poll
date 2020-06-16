@@ -248,11 +248,11 @@ const checkEmailExists = () => {
 const showToast = message => {
   Toastify({
     text: message,
-    close: true,
+    close: false,
     gravity: "top", // `top` or `bottom`
     position: "center",
     backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
-    duration: 2000
+    duration: 3000
   }).showToast();
 };
 
