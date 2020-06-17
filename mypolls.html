@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quick Poll</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <link rel="stylesheet" href="css/mypolls.css">
+    <!--Navigation scripts-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("navbar.html");
+        });
+    </script>
+    <!--End of Navigation scripts-->
+    <script src="js/mypolls.js"></script>
+
+    <!--Loading scripts-->
+    <script>
+        $(function () {
+            $("#loading-placeholder").load("loading.html");
+        });
+    </script>
+    <!--End of loading scripts-->
+</head>
+
+<body>
+    <!--Loading bar-->
+    <div id=loading-placeholder></div>
+    <!--end of Loading bar-->
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    <!--end of Navigation bar-->
+
+    <main>
+        <div>
+            <p id="poll-header">MY POLLS</p>
+        </div>
+
+        <div id="card-container">
+            <div class="card">
+                <div class="card-header">
+                    <div class="circletag" id="nay">
+                        <img class="card-img-top" src="/assets/images/logo_large.png" alt="Card image cap" />
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">What age category do you belong to?</p>
+                </div><button class="join-poll-btn" onclick="navigateToPoll('5ee8400ae36050866b893155')">POLL
+                    NOW</button>
+            </div>
+        </div>
+
+    </main>
+
+
+
+</body>
+
+</html>

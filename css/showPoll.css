@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "Proxima-Nova-Regular";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Regular.ttf") format("ttf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Regular.ttf")
+      format("opentype");
+}
+
+.poll-container {
+  margin: auto;
+  width: 70%;
+  margin-top: 50px;
+  border: 2px solid #208cf1;
+}
+
+.poll-question-header img {
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+.poll-question-header {
+  display: -webkit-inline-box;
+  background: #208cf1;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 15px;
+  width: 100%;
+}
+
+.poll-question-header p {
+  color: white;
+  font-family: "Proxima-Nova-Regular";
+  font-size: 25px;
+}
+
+.content-container {
+  background: #f5f5f5;
+  padding: 37px 0;
+}
+
+.poll-options {
+  background: white;
+  display: grid;
+  grid-template-columns: auto;
+  padding: 30px;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.poll-options .options {
+  width: 100%;
+  border: 1px solid #f5f5f5;
+  background: #f5f5f5;
+  margin-right: 50px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.options:hover {
+  cursor: pointer;
+  background: #f46368;
+  color: white;
+}
+
+.vote-btn {
+  position: relative;
+  width: 115px;
+  padding: 10px 10px 0;
+  text-align: left;
+  font-size: 16px;
+  color: white;
+  background: #5cb85c;
+  border-radius: 5px;
+  border: none;
+}
+
+#btn_container {
+  width: 40px;
+  height: 38px;
+  border-radius: 5px;
+  float: left;
+  position: relative;
+}
+
+#view-result-btn {
+  padding: 11px;
+}
+
+.btn img {
+  left: 50%;
+  margin-left: -15px;
+  top: 50%;
+  margin-top: -15px;
+  position: absolute;
+}
+
+.btn span {
+  display: inline-block;
+  width: 120px;
+  vertical-align: middle;
+}
+
+.footer-container {
+  justify-content: space-evenly;
+  background: #f5f5f5;
+  padding: 0 40px 40px 30px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .poll-options {
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+  }
+  .vote-btn {
+    margin-bottom: 12px;
+  }
+}
