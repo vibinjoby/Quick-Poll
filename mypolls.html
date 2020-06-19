@@ -44,23 +44,27 @@
         </div>
 
         <div id="card-container">
-            <div class="card">
-                <div class="card-header">
-                    <div class="circletag" id="nay">
-                        <img class="card-img-top" src="/assets/images/logo_large.png" alt="Card image cap" />
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">What age category do you belong to?</p>
-                </div><button class="join-poll-btn" onclick="navigateToPoll('5ee8400ae36050866b893155')">POLL
-                    NOW</button>
-            </div>
         </div>
-
     </main>
 
-
-
+    <!-- Delete modal popup -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel"> Are you sure you want to Delete?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="window.location.href='/'">Confirm</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

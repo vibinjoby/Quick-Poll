@@ -77,6 +77,24 @@ main .card p {
   font-size: 1rem;
 }
 
+.delete-container {
+  padding-top: 5px;
+  padding-right: 5px;
+  text-align: right;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.votes-container p {
+  color: #17ac3a;
+  text-align: right;
+}
+
+.delete-container img {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
 #card-container {
   display: flex;
   flex-wrap: wrap;
@@ -86,13 +104,31 @@ main .card p {
 
 .card {
   width: 25rem;
-  cursor: pointer;
   transition: transform 0.5s; /* Animation */
   border: 1px solid lightgrey;
 }
 
 .card:hover {
   transform: scale(1.1);
+}
+
+.modal {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.modal::before {
+  content: "";
+  display: inline-block;
+  height: 80%;
+  margin-right: -4px;
+  vertical-align: middle;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
 }
 
 @media only screen and (max-width: 1000px) {

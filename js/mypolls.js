@@ -7,8 +7,26 @@ window.onload = () => {
     .then(data => {
       document.getElementById("card-container").innerHTML = data;
       hideLoadingPopup();
+      animateOptions();
     })
     .catch(err => hideLoadingPopup());
+};
+
+const navigateToPoll = pollId => {
+  window.location.href = `/showpoll.html?pollId=${pollId}`;
+};
+
+const animateOptions = () => {
+  var options = document.querySelectorAll(".card");
+  var tl = gsap.timeline();
+  options.forEach(elem => {
+    tl.from(elem, {
+      duration: 0.2,
+      z: -100,
+      opacity: 0,
+      scale: 0.5
+    });
+  });
 };
 
 /**
