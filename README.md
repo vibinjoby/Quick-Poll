@@ -21,4 +21,6 @@ Toastify --> For showing toasts
 
 JWT --> Authentications
 
+# Snapshot
+
 ![alt text](Quick_poll.png)
