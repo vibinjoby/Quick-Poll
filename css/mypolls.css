@@ -131,7 +131,16 @@ main .card p {
   vertical-align: middle;
 }
 
+#no-polls-text {
+  color: #97aac3;
+  font-size: 25px;
+  font-family: "Proxima-Nova-Regular";
+}
+
 @media only screen and (max-width: 1000px) {
+  #no-polls-text {
+    font-size: 18px;
+  }
   main p {
     font-size: 25px;
   }

@@ -1,16 +1,67 @@
+let deletePollId = null;
+const token = localStorage.getItem("token");
 window.onload = () => {
-  //hardcoded userid for testing will be removed later
-  fetch(
-    `https://quick-poll-server.herokuapp.com/polls/getMyPolls/5ee66f177bc74c9a33f0674a`
-  )
-    .then(res => res.text())
+  if (!token) window.location.href = "/";
+  showLoadingPopup();
+  fetchMyPolls();
+};
+
+function fetchMyPolls() {
+  fetch(`https://quick-poll-server.herokuapp.com/polls/getMyPolls`, {
+    headers: {
+      "x-auth-token": token
+    }
+  })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("HTTP Status" + res.status);
+      }
+      return res.text();
+    })
     .then(data => {
       document.getElementById("card-container").innerHTML = data;
       hideLoadingPopup();
       animateOptions();
     })
-    .catch(err => hideLoadingPopup());
-};
+    .catch(err => {
+      hideLoadingPopup();
+      showToast(err.message);
+      window.location.href = "/";
+    });
+}
+
+function updateDeletePollId(deletePollId) {
+  this.deletePollId = deletePollId;
+}
+
+function deletePoll() {
+  fetch(
+    `https://quick-poll-server.herokuapp.com/polls/deletePoll/${this.deletePollId}`,
+    {
+      method: "DELETE",
+      headers: {
+        "x-auth-token": token
+      }
+    }
+  )
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("HTTP Status" + res.status);
+      }
+      return res;
+    })
+    .then(() => {
+      //Hide the modal popup
+      $("[data-dismiss=modal]").trigger({ type: "click" });
+      showToast("Poll deleted Successfully");
+      fetchMyPolls();
+    })
+    .catch(err => {
+      hideLoadingPopup();
+      showToast(err.message);
+      window.location.href = "/";
+    });
+}
 
 const navigateToPoll = pollId => {
   window.location.href = `/showpoll.html?pollId=${pollId}`;
@@ -27,6 +78,17 @@ const animateOptions = () => {
       scale: 0.5
     });
   });
+};
+
+const showToast = message => {
+  Toastify({
+    text: message,
+    close: false,
+    gravity: "top", // `top` or `bottom`
+    position: "center",
+    backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+    duration: 3000
+  }).showToast();
 };
 
 /**

@@ -1,5 +1,7 @@
 window.onload = function() {
   showLoadingPopup();
+  const token = localStorage.getItem("token");
+  if (!token) window.location.href = "/";
 
   //Fetch the poll id from the url params
   const url_str = location.href;
@@ -10,9 +12,19 @@ window.onload = function() {
   !pollId ? (window.location.href = "/viewpolls.html") : "";
 
   fetch(
-    `https://quick-poll-server.herokuapp.com/polls/getPollQuestion/${pollId}`
+    `https://quick-poll-server.herokuapp.com/polls/getPollQuestion/${pollId}`,
+    {
+      headers: {
+        "x-auth-token": token
+      }
+    }
   )
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("HTTP Status" + res.status);
+      }
+      return res.json();
+    })
     .then(data => {
       document.getElementById("question").innerHTML = data.question;
       [1, 2, 3, 4].forEach(element => {
@@ -25,6 +37,10 @@ window.onload = function() {
       });
       hideLoadingPopup();
       animateOptions();
+    })
+    .catch(() => {
+      hideLoadingPopup();
+      window.location.href = "/";
     });
 };
 

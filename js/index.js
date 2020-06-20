@@ -177,15 +177,22 @@ const signin = () => {
     },
     body: JSON.stringify(formData)
   })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("Incorrect username / password");
+      }
+      return res.text();
+    })
     .then(data => {
       hideLoadingPopup();
-      const { username } = data;
-      username && showToast(`Welcome ${username}`);
-      //reset the contents of form
-      username && resetFormData("signin-form");
-
-      !username && showToast("Incorrect email/ Password");
+      //save the jwt to local storage
+      localStorage.setItem("token", data);
+      window.location.href = "/viewpolls.html";
+    })
+    .catch(err => {
+      hideLoadingPopup();
+      resetFormData("signin-form");
+      showToast(err.message);
     });
 };
 
@@ -217,7 +224,10 @@ const signup = () => {
       // Navigate to sign in tab
       onSignin();
     })
-    .catch(err => showToast(err));
+    .catch(err => {
+      hideLoadingPopup();
+      showToast(err);
+    });
 };
 
 //https://quick-poll-server.herokuapp.com --prod
@@ -277,11 +287,13 @@ const resetFormData = formid => {
 };
 
 const onCreatePoll = () => {
-  window.location.href = "/choosepoll.html";
+  showToast("Sign in to create new polls");
+  onLoginClick();
 };
 
 const onViewPolls = () => {
-  window.location.href = "/viewpolls.html";
+  showToast("Sign in to view all the polls");
+  onLoginClick();
 };
 
 const onLogoClick = () => {

@@ -2,6 +2,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/nav.css" />
+    <script src="js/nav.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
@@ -9,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -16,8 +18,7 @@
         <div id="loginContainer">
             <a href="#" id="navbarDropdown" data-toggle="dropdown">
                 <img src="assets/images/login_btn.png" class="loginImg"></img>&nbsp;
-                <a href="#" class="username" id="navbarDropdown" data-toggle="dropdown">
-                    Vibin E Joby
+                <a href="#" class="username" id="user-name" data-toggle="dropdown">
                 </a>
             </a>
 
@@ -51,8 +52,7 @@
                         </button>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success"
-                            onclick="window.location.href='/'">Confirm</button>
+                        <button type="button" class="btn btn-success" onclick="onLogout()">Confirm</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>

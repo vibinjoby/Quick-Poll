@@ -1,11 +1,27 @@
 window.onload = function() {
   showLoadingPopup();
-  fetch("https://quick-poll-server.herokuapp.com/polls/viewPublicPolls")
-    .then(res => res.text())
+  const token = localStorage.getItem("token");
+  if (!token) window.location.href = "/";
+
+  fetch("https://quick-poll-server.herokuapp.com/polls/viewPublicPolls", {
+    headers: {
+      "x-auth-token": token
+    }
+  })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("HTTP Status" + res.status);
+      }
+      return res.text();
+    })
     .then(data => {
       document.getElementById("card-container").innerHTML = data;
       hideLoadingPopup();
       animateOptions();
+    })
+    .catch(() => {
+      hideLoadingPopup();
+      window.location.href = "/";
     });
 };
 
