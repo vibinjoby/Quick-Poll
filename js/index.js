@@ -1,3 +1,7 @@
+//If the user is already logged in redirect him to view polls page
+const token = localStorage.getItem("token");
+if (token) window.location.href = "/viewpolls.html";
+
 window.onload = function() {
   document.getElementById("loginContainer").onclick = onLoginClick;
   document.getElementById("logoContainer").onclick = onLogoClick;
