@@ -84,6 +84,10 @@
   vertical-align: middle;
 }
 
+#card-container .card-img-top {
+  max-height: 300px;
+}
+
 @media only screen and (max-width: 1000px) {
   #hamburgerDropDown {
     display: block;
