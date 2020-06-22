@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quick Poll</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!--Navigation scripts-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/CreatePoll_text.css">
+        <script src="/js/CreatePoll_text.js"></script>
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("navbar.html");
+        });
+    </script>
+    <!--End of Navigation scripts-->
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    <!--end of Navigation bar-->
+    <div id=loading-placeholder></div>
+    <!--Navigation bar-->
+
+    <header id="poll-head">
+        <p>PUBLIC POLLS</p>
+        <div id="btn"><button class="join-poll-btn" data-toggle="modal" data-target="#joinpollmodal">JOIN POLL</button>
+        </div>
+        <hr class="divider" />
+    </header>
+
+    <section id = 'Box' >
+        <input type="text" id="create_Question" class="Question" placeholder="  Ask your question here"/>
+        <br>
+        <section id = "list_layout">
+            <table  id = "addChoice" class="choice">
+                <!--Loading scripts for List <input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice 1 "/>  -->   
+            </table>
+            <div class="add_Choices">
+                <button onclick="add_choices()" type="button" id="" class="add_option" > Add Choice </button>
+            </div>
+            <input type="checkbox" id="is_PrivatePoll" name="private" value="public">
+            <label id="is_PrivatePoll" for="private"> Private Poll</label><br>
+        </section>
+    </section>
+    
+</body>
+
+</html>
