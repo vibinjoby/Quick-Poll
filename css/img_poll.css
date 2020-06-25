@@ -28,8 +28,8 @@ body {
   padding-top: 2%;
   display: flex;
   flex-direction: row;
-  padding-left: 4%;
-  padding-right: 4%;
+  padding-left: 5%;
+  padding-right: 5%;
   justify-content: center;
   align-items: center;
 }
@@ -43,7 +43,7 @@ body {
 }
 
 .option-2 {
-  width: 30%;
+  width: 50%;
 }
 
 .option-3 {
@@ -83,7 +83,12 @@ body {
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
   #option_container {
-    flex-direction: column;
+    flex-direction: row;
+  }
+
+  .option-3 {
+    width: 100%;
+    background-color: darkcyan;
   }
 }
 
@@ -92,6 +97,11 @@ body {
   #option_container {
     flex-direction: row;
   }
+
+  .option-3 {
+    width: 50%;
+    background-color: crimson;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -99,11 +109,21 @@ body {
   #option_container {
     flex-direction: row;
   }
+
+  .option-3 {
+    width: 33.33%;
+    background-color: cyan;
+  }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
   #option_container {
     flex-direction: row;
+  }
+
+  .option-3 {
+    width: 33.33%;
+    background-color: darkgreen;
   }
 }
