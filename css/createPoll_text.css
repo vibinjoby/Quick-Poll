@@ -110,19 +110,26 @@
 
    
   .ChoiceOption{
-    
     background-color: #ffffff;
-    width: 100%;
+    width: 90%;
     padding: 2% 0% ;
-    margin: 5% 0%;
+    margin: 2% 0%;
     font-size:5vw;
     font-family: "Proxima-Nova-Bold";
     word-wrap: break-word;
     border: 0.3px solid #707070
   }
+  .delete_Choicelist{
+    width: 7%;
+    padding-left: 1%;
+    cursor: pointer;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
 
   .choice { 
     width: 100%;
+    display: grid;
   }
 
   .add_Choices {
@@ -165,21 +172,47 @@
     font-family: "Proxima-Nova-Bold";
   }
 
+  .modal {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .modal::before {
+    content: "";
+    display: inline-block;
+    height: 80%;
+    margin-right: -4px;
+    vertical-align: middle;
+  }
+  
+  .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+  }
+  
  
-  @media screen and (min-width: 601px) {
-    .ChoiceOption {
-      font-size: 1vw;
+  @media screen and (min-width: 600px) {
+    .add_option {
+      font-size: 1.5vw;
     }
-    .uploadText{
-      font-size: 2vw;
+    .ChoiceOption{
+      font-size: 1.25vw;
+    }
+    .Question{
+      font-size: 1.5vw;
     }
   }
   
   @media screen and (max-width: 600px) {
-    .ChoiceOption {
-      font-size: 10px;
+    .add_option {
+      font-size: 1.25vw;  
+      
     }
-    .uploadText{
-      font-size: 8px;
+    .ChoiceOption{
+      font-size: 1.5vw;
+    }
+    .Question{
+      font-size: 2vw;
     }
   }

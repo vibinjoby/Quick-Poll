@@ -12,11 +12,17 @@ alert("Maximum number of choices reached");
     var table = document.getElementById("addChoice");
     var row = table.insertRow(noOfchoices);
     //var cell1 = row.insertCell(0);
-    row.innerHTML = '<input type="text" id="create_Choice" class="ChoiceOption form-control" placeholder="  Enter Answer choice '+ noOfchoices +' "</input>'; 
+    row.innerHTML = '<input type="text" id="create_Choice '+ noOfchoices +'" class="ChoiceOption" placeholder="  Enter Answer choice "</input><img id ="Cancel_'+ noOfchoices +'"  class= "delete_Choice"src="/assets/images/cancel.png" alt="Delete" >'; 
     table.appendChild(row);
     noOfchoices++;
   }
 }
+$(document).on("click",".delete_Choice",function(delevent){
+  $(delevent.target).closest("tr").remove();
+  noOfchoices--;
+});
+
+
  
   
 
