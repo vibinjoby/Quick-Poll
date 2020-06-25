@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Proxima-Nova-Bold";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Bold.otf") format("otf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima-Nova-Regular";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Regular.otf") format("otf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Regular.otf")
+      format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima-Nova-Light";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Light.ttf") format("ttf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Light.ttf") format("opentype");
+}
+
+.test {
+  background-color: brown;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-horizondal {
+  flex-direction: row;
+}
+
+.flex-vertical {
+  flex-direction: column;
+}
+
+.flex-gravity-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  margin: auto;
+}
+
+.margin-horizondal-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.padding-horzondal {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.proxima-nova {
+  font-family: "ProximaNova";
+}
+
+.proxima-bold {
+  font-family: "Proxima-Nova-Bold";
+}
+
+.proxima-light {
+  font-family: "Proxima-Nova-Light";
+}
+
+.proxima-regular {
+  font-family: "Proxima-Nova-Regular";
+}
+
+.font-sm {
+  font-size: 0.8em;
+}
+
+.font-rg {
+  font-size: 1em;
+}
+
+.font-lg {
+  font-size: 2em;
+}
+
+.font-light {
+  font-weight: 200;
+}
