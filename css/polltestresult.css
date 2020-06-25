@@ -1,0 +1,23 @@
+.resultContainer{
+margin: 1%;
+}
+.Question{
+font-size: 3vw;
+text-align: center;
+padding: 2%;
+}
+.container{
+  display: flex;
+  flex-direction: row;
+}
+.imageLoad{
+width: 40%;
+margin: auto;
+padding: 2%;
+text-align: center;
+background-color: #F5F5F5;
+}
+.txtLoad{
+  width: 60%;
+  padding: 0.5%;
+}

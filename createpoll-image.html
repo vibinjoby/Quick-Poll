@@ -34,7 +34,7 @@
 
     <header id="poll-head">
         <p>PUBLIC POLLS</p>
-        <div id="btn"><button class="join-poll-btn" data-toggle="modal" data-target="#joinpollmodal">JOIN POLL</button>
+        <div id="btn"><button class="join-poll-btn" data-toggle="modal" data-target="#joinpollmodal">CREATE</button>
         </div>
         <hr class="divider" />
     </header>
@@ -50,13 +50,13 @@
             </picture>
         </div>
         <section id = "list_layout">
-            <div class="image">
-                <img id ="upload" src="/assets/images/imageUpload.png" alt="Grid" >
-                <label class= "uploadText" >Click to add image </label>
+            <div id="imgload" class="image">
+                    <input id="selectImg" type='file' style="display: none;"/> 
+                    <img id ="upload" src="/assets/images/imageUpload.png" alt="Image Upload" >
+                    <label  for="selectImg" class= "uploadText" >Click to add image </label>
             </div>
             <table  id = "addChoice" class="choice">
-               
-                           <!--Loading scripts for List <input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice 1 "/>  -->   
+                <!--Loading scripts for List <input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice 1 "/>  -->   
             </table>
             <div class="add_Choices">
                 <button onclick="add_choices()" type="button" id="" class="add_option" > Add Choice </button>
@@ -79,8 +79,7 @@
                 <label id="is_PrivatePoll" for="private"> Private Poll</label><br>
             </div>
         </section>
-    </section>
-    
+    </section>  
 </body>
 
 </html>
