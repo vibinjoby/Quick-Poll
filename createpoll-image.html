@@ -23,6 +23,13 @@
         });
     </script>
     <!--End of Navigation scripts-->
+      <!--Loading scripts-->
+      <script>
+        $(function () {
+            $("#loading-placeholder").load("loading.html");
+        });
+    </script>
+    <!--End of loading scripts-->
 </head>
 
 <body>
@@ -34,11 +41,11 @@
 
     <header id="poll-head">
         <p>PUBLIC POLLS</p>
-        <div id="btn"><button class="join-poll-btn" data-toggle="modal" data-target="#joinpollmodal">CREATE</button>
+        <div id="btn"class="btn-create"><button class="create-poll-btn" data-toggle="modal" data-target="#createpollmodal">CREATE</button>
         </div>
         <hr class="divider" />
     </header>
-
+    <div class="AlertUser">Alert message (Limit reached for number of choices)</div>
     <section id = 'Box' >
         <input type="text" id="create_Question" class="Question" placeholder="  Ask your question here"/>
         <br>

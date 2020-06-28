@@ -3,7 +3,7 @@
   margin-top: 10px;
   float: right;
 }
-.join-poll-btn {
+.create-poll-btn {
   border: 0;
   transition: transform 0.5s;
   border-radius: 6px;
@@ -14,11 +14,11 @@
   font-family: "Proxima-Nova-Regular";
 }
 
-.join-poll-btn:focus {
+.create-poll-btn:focus {
   outline: none;
 }
 
-.join-poll-btn:hover {
+.create-poll-btn:hover {
   transform: scale(1.02);
   color: lightgray;
 }
@@ -261,8 +261,27 @@
     cursor: pointer;
     padding-top: 1%;
     padding-bottom: 1%;
-    cursor: pointer;
   }
+  .delete_Choicegrid{
+    width: 7%;
+    text-align: right;
+    padding-left: 1%;
+    cursor: pointer;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+  .AlertUser{
+    background-color: greenyellow;
+    color: green;
+    margin-top: 0;
+    margin-bottom: 0.5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    font-size: 1.5vw;
+  }
+
   @media screen and (min-width: 601px) {
     .ChoiceOption {
       font-size: 2vw;
@@ -290,6 +309,15 @@
     }
     .ChoiceOptionlist{
       font-size: 2vw;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
+    #poll-head p {
+      margin-left: 20px;
+      font-size: 22px;
+    }
+    #poll-head #btn {
+      margin-right: 15px;
     }
   }
 
