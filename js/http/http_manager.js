@@ -1,12 +1,10 @@
-function post(urlParam, requestParams, callback) {
-  const url = "http://localhost:3000/api" + urlParam;
+function post(urlParam, headers, requestParams, callback) {
+  const url = "https://quick-poll-server.herokuapp.com" + urlParam;
   fetch(url, {
     mode: "cors",
     method: "POST",
     body: JSON.stringify(requestParams),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: headers,
   })
     .then(function (response) {
       return response.json();

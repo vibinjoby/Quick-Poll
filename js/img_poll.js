@@ -1,4 +1,5 @@
-import { get } from "./http/http_manager.js";
+import { post, get } from "./http/http_manager.js";
+import { getHeader } from "./utilities/util.js";
 
 let questionResponse;
 let pollId;
@@ -12,15 +13,6 @@ window.onload = function () {
   getQuestion(pollId);
 };
 
-function getHeader() {
-  const token = localStorage.getItem("token");
-  let header = {
-    "x-auth-token":
-      "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ZWVkMGFiNTYzNGRkOTQ0MGZhZWFkNGMiLCJuYW1lIjoieWFkaHUiLCJlbWFpbCI6InlhZGh1ZWthbWJhcmFtMTk5MkBnbWFpbC5jb20iLCJfX3YiOjB9.LtXvmo8CZxfbgkgDr2eowx6ih-mhV-OvYlurUeaA2Rc",
-  };
-
-  return header;
-}
 function getQuestion(id) {
   get("/polls/getPollQuestion/" + id, getHeader(), function (status, response) {
     if (status) {
@@ -50,11 +42,16 @@ function updateView() {
         options +
         "<div class='option option-3 flex flex-vertical flex-gravity-center'>";
       options =
-        options + '<img src="' + optionJSON[key] + '" class="option-img" />';
+        options +
+        '<img id="img_' +
+        key +
+        '" src="' +
+        optionJSON[key] +
+        '" class="option-img" />';
       options = options + '<div class="text_container">';
       options =
         options +
-        '<div id="pb' +
+        '<div id="pb_' +
         key +
         '" class="progress_bar flex flex-gravity-center">';
       options =
@@ -65,7 +62,7 @@ function updateView() {
       options = options + "</div>";
       options =
         options +
-        '<label id="label' +
+        '<label id="label_' +
         key +
         '" class="font-lg proxima-light option-text center">' +
         optionTexts[1] +
@@ -82,27 +79,46 @@ $(document).on("click", ".option", function (event) {
   if (isResultFetched) {
     return;
   }
-
-  getResult();
+  isResultFetched = true;
+  let id = event.target.id;
+  let position = id.split("_")[1];
+  doVote(position);
 });
+
+function doVote(option) {
+  let requestParam = {
+    pollId: pollId,
+    optionChosen: option,
+  };
+
+  post("/polls/vote", getHeader(), requestParam, function (status, response) {
+    if (status) {
+      getResult();
+    } else {
+      console.log(
+        "-------- doVote ---- post --- else --- Something went wrong"
+      );
+    }
+  });
+}
 
 function getResult() {
   get("/polls/viewResult/" + pollId, getHeader(), function (status, response) {
     if (status) {
+      console.log(response);
       [1, 2, 3, 4].forEach(function (index) {
         if (response.hasOwnProperty(index)) {
           let value = response[index];
-          console.log(index);
-          console.log(value);
-          document.getElementById("pb" + index).style.width = "100%";
+          document.getElementById("pb_" + index).style.width = value + "%";
           document.getElementById("label_percentage" + index).innerText =
             value + "%";
-          document.getElementById("label" + index).style.display = "none";
+          document.getElementById("label_" + index).style.display = "none";
         }
       });
-      isResultFetched = true;
     } else {
-      alert("Somethig went wrong");
+      console.log(
+        "------ getResult ---- get ---- else ---- Something went wrong"
+      );
     }
   });
 }
