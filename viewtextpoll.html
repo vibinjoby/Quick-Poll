@@ -24,22 +24,35 @@
     <!--End of Navigation scripts-->
     <script type="module" src="js/viewtextpoll.js"></script>
 
-    <!--Loading scripts-->
-    <script>
-      $(function () {
-        $("#loading-placeholder").load("loading.html");
-      });
-    </script>
-    <!--End of loading scripts-->
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Quick Poll</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+  <link rel="stylesheet" href="css/viewtextpoll.css" />
+  <!--Navigation scripts-->
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="js/jwt-decode.min.js"></script>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("navbar.html");
+    });
+  </script>
+  <!--End of Navigation scripts-->
+  <script src="js/viewtextpoll.js"></script>
 
-  <body>
-    <!--Loading bar-->
-    <div id="loading-placeholder"></div>
-    <!--end of Loading bar-->
-    <!--Navigation bar-->
-    <div id="nav-placeholder"></div>
-    <!--end of Navigation bar-->
+  <!--Loading scripts-->
+  <script>
+    $(function () {
+      $("#loading-placeholder").load("loading.html");
+    });
+  </script>
+  <!--End of loading scripts-->
+</head>
 
     <div class="poll-container">
       <div class="poll-question-header">
@@ -83,5 +96,8 @@
       </div>
 
     </div>
-  </body>
+
+  </div>
+</body>
+
 </html>
