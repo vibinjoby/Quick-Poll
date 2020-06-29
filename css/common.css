@@ -47,11 +47,27 @@
   margin-right: auto;
 }
 
+.margin-vertical-center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .padding-horzondal {
   padding-left: 2%;
   padding-right: 2%;
 }
 
+.padding-vertical {
+  padding: 2% 1%;
+}
+
+.padding-vertical-lg {
+  padding: 3% 0%;
+}
+
+.margin-vertcal-lg {
+  margin: 2% 0%;
+}
 .proxima-nova {
   font-family: "ProximaNova";
 }
@@ -82,6 +98,10 @@
 
 .font-light {
   font-weight: 200;
+}
+
+.text-center {
+  text-align: center;
 }
 
 /* Extra small devices (phones, 600px and down) */

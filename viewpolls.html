@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="css/viewpolls.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script src="js/viewpolls.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!--Navigation scripts-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
@@ -71,7 +73,7 @@
                         placeholder="Paste your poll link here">
                 </div>
                 <div class="modal-footer" id="footer">
-                    <button type="button" class="join-modal-btn">JOIN</button>
+                    <button type="button" class="join-modal-btn" onclick="joinPoll()">JOIN</button>
                 </div>
             </div>
         </div>

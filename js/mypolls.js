@@ -6,6 +6,25 @@ window.onload = () => {
   fetchMyPolls();
 };
 
+function copyLink(pollId, pollLayout) {
+  const el = document.createElement("textarea");
+  el.value = `https://quick-poll.netlify.app/joinpoll.html?pollId=${pollId}&pollLayout=${pollLayout}`;
+  el.setAttribute("readonly", "");
+  document.body.appendChild(el);
+  const selected =
+    document.getSelection().rangeCount > 0
+      ? document.getSelection().getRangeAt(0)
+      : false;
+  el.select();
+  document.execCommand("copy");
+  document.body.removeChild(el);
+  if (selected) {
+    document.getSelection().removeAllRanges();
+    document.getSelection().addRange(selected);
+  }
+  showToast("Link Copied");
+}
+
 function fetchMyPolls() {
   fetch(`https://quick-poll-server.herokuapp.com/polls/getMyPolls`, {
     headers: {
@@ -63,8 +82,14 @@ function deletePoll() {
     });
 }
 
-const navigateToPoll = pollId => {
-  window.location.href = `/showpoll.html?pollId=${pollId}`;
+const navigateToPoll = (pollId, layoutId, result) => {
+  if (layoutId == 0) {
+    window.location.href = `/viewtextpoll.html?pollId=${pollId}&result=1`;
+  } else if (layoutId == 1) {
+    window.location.href = `/option-text-poll.html?pollId=${pollId}&result=1`;
+  } else {
+    window.location.href = `/img_poll.html?pollId=${pollId}&result=1`;
+  }
 };
 
 const animateOptions = () => {
