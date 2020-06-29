@@ -5,7 +5,7 @@ const token = localStorage.getItem("token");
 var question = document.getElementById("create_Question");
 
 //Function onload
-window.onload = function () {
+window.onload = function() {
   document.getElementById("grid_layout").style.display = "none";
   hideLoadingPopup();
   add_choices(); //adding the first choice list
@@ -83,34 +83,21 @@ var img;
 var data;
 let index = 0;
 var imgset = [];
-// window.addEventListener("load", function (event) {
-//   document
-//     .querySelector('input[type="file"]')
-//     .addEventListener("change", function (e) {
-//       console.log(e);
-//       if (this.files && this.files[0]) {
-//         img = document.querySelector("#upload");
-//         img.src = URL.createObjectURL(this.files[0]);
-//         data = this.files[0];
-//         console.log(e);
-//         img.onload = imageIsLoaded;
-//       }
-//     });
-// });
 
-$(document).on("click", ".uploadText", function (event) {
+$(document).on("click", ".uploadText", function(event) {
   console.log(event);
   index = event.target.id.split("_")[1];
   $("#selectImg" + index).click();
 });
 
-$(document).on("change", "input[type='file']", function (event) {
+$(document).on("change", "input[type='file']", function(event) {
   console.log(event);
   if (this.files && this.files[0]) {
     img = document.querySelector("#upload");
     img.src = URL.createObjectURL(this.files[0]);
     data = this.files[0];
-    imgset.push(img.src);
+    const files = event.target.files;
+    imgset.push(files[0]);
     console.log(event);
     img.onload = imageIsLoaded;
   }
@@ -118,23 +105,11 @@ $(document).on("change", "input[type='file']", function (event) {
 
 function imageIsLoaded() {
   if (isGrid) {
-    //var myDiv = document.getElementById("gridImg"+noOfgridChoice);
-    //console.log(" adding = gridImg" + noOfgridChoice);
-    //imgset[noOfgridChoice] = img.src;
     var myDiv = document.getElementById("gridImg" + index);
     myDiv.innerHTML = `<img id ="uploadedImg${index}" class = "imageGrid" src="" alt="Image" >`;
-    //console.log(imgset[i], i);
     document.getElementById(`uploadedImg${index}`).src = img.src;
     showToast(img.src, true);
     index = 0;
-
-    // for (i = 1; i <= noOfgridChoice; i++) {
-    //   var myDiv = document.getElementById("gridImg" + i);
-    //   myDiv.innerHTML = `<img id ="uploadedImg${i}" class = "imageGrid" src="" alt="Image" >`;
-    //   console.log(imgset[i], i);
-    //   document.getElementById(`uploadedImg${i}`).src = img.src;
-    //   showToast(img.src, true);
-    // }
   } else {
     var myDiv = document.getElementById("imgload");
     myDiv.innerHTML = '<img id ="uploadedImg" src="" alt="Image" >';
@@ -142,15 +117,18 @@ function imageIsLoaded() {
   }
 }
 
-$(document).on("click", ".delete_Choicelist", function (delevent) {
+$(document).on("click", ".delete_Choicelist", function(delevent) {
   if (noOfchoices > 1) {
-    $(delevent.target).closest("tr").remove();
+    $(delevent.target)
+      .closest("tr")
+      .remove();
     noOfchoices--;
   } else {
     showToast("Minimum Number of Choice reached", true);
   }
 });
-$(document).on("click", ".delete_Choicegrid", function (delevent) {
+
+$(document).on("click", ".delete_Choicegrid", function(delevent) {
   //console.log(delevent.target.closest("div").id);
   console.log(delevent.target.closest("div").id);
   if (noOfgridChoice > 1) {
@@ -162,7 +140,7 @@ $(document).on("click", ".delete_Choicegrid", function (delevent) {
   }
 });
 //Section on click create poll
-$(document).on("click", ".btn-create", function (createPoll) {
+$(document).on("click", ".btn-create", function(createPoll) {
   console.log(document.getElementById("create_Question").text + "printing");
   if (noOfchoices > 1 && isGrid == false && question.text != "") {
     //list of more than 1 option
@@ -178,28 +156,33 @@ $(document).on("click", ".btn-create", function (createPoll) {
   }
 });
 
+//For options
 function creategridPolls() {
-  var formData = new FormData();
-  formData.append("options", imgset[0]);
+  let formData = new FormData();
+  formData.append("is_options_image", "Y");
+  //:- TO-DO
+  formData.append("options_text", "1,2");
+  formData.append("question_text", "Hi hiw are you");
+  formData.append("is_private", true);
+
+  imgset.map(img => formData.append("options", img));
   fetch(`https://quick-poll-server.herokuapp.com/create-polls/imagePoll`, {
     method: "POST",
     headers: {
-      "x-auth-token":
-        "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ZWVkMGFiNTYzNGRkOTQ0MGZhZWFkNGMiLCJuYW1lIjoieWFkaHUiLCJlbWFpbCI6InlhZGh1ZWthbWJhcmFtMTk5MkBnbWFpbC5jb20iLCJfX3YiOjB9.LtXvmo8CZxfbgkgDr2eowx6ih-mhV-OvYlurUeaA2Rc",
+      "x-auth-token": token
     },
-    data: formData,
-    body: formData,
+    body: formData
   })
-    .then((res) => {
+    .then(res => {
       if (!res.ok) {
         throw new Error("HTTP Status" + res.status);
       }
       return res.text();
     })
-    .then((data) => {
+    .then(data => {
       console.log(data);
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       hideLoadingPopup();
       showToast(err.message);
@@ -214,16 +197,16 @@ function post(urlParam, requestParams, callback) {
     method: "POST",
     body: JSON.stringify(requestParams),
     headers: {
-      "Content-Type": "application/json",
-    },
+      "Content-Type": "application/json"
+    }
   })
-    .then(function (response) {
+    .then(function(response) {
       return response.json();
     })
-    .then(function (response) {
+    .then(function(response) {
       callback(true, response);
     })
-    .catch(function (err) {
+    .catch(function(err) {
       console.log(err);
       callback(false, null);
     });
@@ -237,7 +220,7 @@ const showToast = (message, error) => {
     backgroundColor: !error
       ? "linear-gradient(to right, #00b09b, #96c93d)"
       : "linear-gradient(to right,#e01000,orange)",
-    duration: 3000,
+    duration: 3000
   }).showToast();
 };
 
@@ -252,7 +235,7 @@ const hideLoadingPopup = () => {
   document.getElementById("loading-placeholder").style.display = "none";
 };
 
-const navigateToPoll = (pollId) => {
+const navigateToPoll = pollId => {
   window.location.href = `/showpoll.html?pollId=${pollId}`;
 };
 
