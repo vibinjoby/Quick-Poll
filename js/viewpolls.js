@@ -49,6 +49,12 @@ const hideLoadingPopup = () => {
   document.getElementById("loading-placeholder").style.display = "none";
 };
 
-const navigateToPoll = (pollId) => {
-  window.location.href = `/showpoll.html?pollId=${pollId}`;
+const navigateToPoll = (pollId, navPage) => {
+  if (navPage == 0) {
+    window.location.href = `/showpoll.html?pollId=${pollId}`;
+  } else if (navPage == 1) {
+    window.location.href = `/option-text-poll.html?pollId=${pollId}`;
+  } else {
+    window.location.href = `/img_poll.html?pollId=${pollId}`;
+  }
 };

@@ -4,11 +4,14 @@ import { getHeader } from "./utilities/util.js";
 let questionResponse;
 let pollId;
 let isResultFetched = false;
+let isResult = 0;
 
 window.onload = function () {
   const url_str = location.href;
+  console.log(url_str);
   var url = new URL(url_str);
-  pollId = "5ef4e2ba831b620017435183"; //url.searchParams.get("pollId");
+  pollId = url.searchParams.get("pollId");
+  isResult = url.searchParams.get("result");
 
   getQuestion(pollId);
 };
@@ -35,7 +38,7 @@ function updateView() {
   console.log(optionText);
   let optionTexts = optionText.split(",");
   console.log(optionTexts);
-
+  console.log("---------- " + isResult + " -------------");
   [1, 2, 3, 4].forEach(function (key) {
     if (optionJSON.hasOwnProperty(key)) {
       options =
@@ -73,6 +76,10 @@ function updateView() {
   });
 
   document.getElementById("option_container").innerHTML = options;
+
+  if (isResult == 1) {
+    getResult();
+  }
 }
 
 $(document).on("click", ".option", function (event) {
