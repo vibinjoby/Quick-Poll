@@ -1,68 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quick Poll</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" href="css/viewtextpoll.css" />
+    <!--Navigation scripts-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/jwt-decode.min.js"></script>
+    <script>
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
+    </script>
+    <!--End of Navigation scripts-->
+    <script type="module" src="js/viewtextpoll.js"></script>
+  </head>
+  <body>
+    <!--Loading bar-->
+    <div id="loading-placeholder"></div>
+    <!--end of Loading bar-->
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
+    <!--end of Navigation bar-->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Quick Poll</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-  <link rel="stylesheet" href="css/viewtextpoll.css" />
-  <!--Navigation scripts-->
-  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="js/jwt-decode.min.js"></script>
-  <script>
-    $(function () {
-      $("#nav-placeholder").load("navbar.html");
-    });
-  </script>
-  <!--End of Navigation scripts-->
-  <script src="js/viewtextpoll.js"></script>
+    <div class="poll-container">
+      <div class="poll-question-header">
+        <img src="assets/images/question_arrow@2x.png" width="20px" />
+        <p id="question">my first question</p>
+      </div>
+      <div class="content-container">
+        <div class="poll-options">
+          <div class="options">
+            <div class="progressBar flex">
+              <div id="percentage_1" class="pb_percentage"></div>
+              <label id="percentage_value_1" class="percentage_value"></label>
+            </div>
+            <p id="option-1" class="option"></p>
+          </div>
 
-  <!--Loading scripts-->
-  <script>
-    $(function () {
-      $("#loading-placeholder").load("loading.html");
-    });
-  </script>
-  <!--End of loading scripts-->
-</head>
+          <div class="options">
+            <div class="progressBar flex">
+              <div id="percentage_2" class="pb_percentage"></div>
+              <label id="percentage_value_2" class="percentage_value"></label>
+            </div>
+            <p id="option-2" class="option"></p>
+          </div>
 
-<body>
-  <!--Loading bar-->
-  <div id="loading-placeholder"></div>
-  <!--end of Loading bar-->
-  <!--Navigation bar-->
-  <div id="nav-placeholder"></div>
-  <!--end of Navigation bar-->
+          <div class="options">
+            <div class="progressBar flex">
+              <div id="percentage_3" class="pb_percentage"></div>
+              <label id="percentage_value_3" class="percentage_value"></label>
+            </div>
+            <p id="option-3" class="option"></p>
+          </div>
 
-  <div class="poll-container">
-    <div class="poll-question-header">
-      <img src="assets/images/question_arrow@2x.png" width="20px" />
-      <p id="question">my first question</p>
-    </div>
-    <div class="content-container">
-      <div class="poll-options">
-        <div class="options">
-          <div class="progressBar"></div>
-          <p id="option-1"></p>
-        </div>
-        <div class="options">
-          <p id="option-2"></p>
-        </div>
-        <div class="options">
-          <p id="option-3"></p>
-        </div>
-        <div class="options">
-          <p id="option-4"></p>
+          <div class="options">
+            <div class="progressBar flex">
+              <div id="percentage_4" class="pb_percentage"></div>
+              <label id="percentage_value_4" class="percentage_value"></label>
+            </div>
+            <p id="option-4" class="option"></p>
+          </div>
         </div>
       </div>
     </div>
-
-  </div>
-</body>
-
+  </body>
 </html>

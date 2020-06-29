@@ -251,7 +251,7 @@ function creategridPolls() {
       if (!res.ok) {
         throw new Error("HTTP Status" + res.status);
       }
-      return res.text();
+      return res.json();
     })
     .then((data) => {
       console.log(data);
