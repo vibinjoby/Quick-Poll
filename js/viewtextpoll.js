@@ -2,7 +2,7 @@ import { post, get } from "./http/http_manager.js";
 import { getHeader } from "./utilities/util.js";
 
 let pollId;
-
+let isResult = 0;
 window.onload = function () {
   showLoadingPopup();
   const token = localStorage.getItem("token");
@@ -12,6 +12,7 @@ window.onload = function () {
   const url_str = location.href;
   var url = new URL(url_str);
   pollId = url.searchParams.get("pollId");
+  isResult = url.searchParams.get("result");
 
   //If no poll id passed redirect to view polls page
   !pollId ? (window.location.href = "/viewpolls.html") : "";
@@ -42,6 +43,10 @@ window.onload = function () {
       });
       hideLoadingPopup();
       animateOptions();
+
+      if (isResult == 1) {
+        getResult();
+      }
     })
     .catch(() => {
       hideLoadingPopup();
