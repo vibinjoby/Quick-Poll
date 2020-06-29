@@ -115,7 +115,7 @@
   padding: 0% 5%;
   display: block;
 }
-.Question {uploaded
+.Question {
   background-color: #ffffff;
   width: 100%;
   font-size: 1em;
@@ -164,7 +164,7 @@
   text-align: center;
   padding-top: 10%;
 }
-.upload-list{
+.upload-list {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -253,7 +253,7 @@
   width: 100%;
   flex-direction: column;
 }
-.imageGrid{
+.imageGrid {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -261,7 +261,6 @@
   max-width: 100%;
   min-width: 50%;
   min-height: 100px;
-
 }
 #uploadedImg {
   display: block;
@@ -272,7 +271,7 @@
   min-width: 50%;
   min-height: 100px;
 }
-.uploadedList{
+.uploadedList {
   display: block;
   margin-left: auto;
   margin-right: auto;
