@@ -44,7 +44,6 @@ $(document).on("click", ".btn-create", function (createPoll) {
     let is_sucess = checkmandatory();
     if (is_sucess) {
       createlistPolls();
-      showToast("Created Text poll successfully");
     } else {
       showToast("Please Enter all Mandatory feilds", true);
     }
@@ -74,16 +73,18 @@ function createlistPolls() {
   console.log(optionlist);
   console.log("isprivate", isPrivate);
   showLoadingPopup();
-  fetch("https://quick-poll-server.herokuapp.com/create-polls/textPoll", {
+  fetch(`https://quick-poll-server.herokuapp.com/create-polls/textPoll`, {
     method: "POST",
     headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
       "x-auth-token": token,
     },
-    body: {
+    body: JSON.stringify({
       question: document.getElementById("create_Question").value,
       options: optionlist,
       is_private: isPrivate,
-    },
+    }),
   })
     .then((res) => {
       console.log(res);
@@ -94,7 +95,9 @@ function createlistPolls() {
     })
     .then((data) => {
       console.log(data);
+      showToast("Created Text poll successfully");
       hideLoadingPopup();
+      window.location.href = "/mypolls.html";
       //navigate to my polls
     })
     .catch((err) => {
