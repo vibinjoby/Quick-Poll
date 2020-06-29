@@ -45,13 +45,15 @@ const animateOptions = () => {
 const joinPoll = () => {
   const link = document.getElementById("pollLink").value;
   console.log("link", link);
-  fetch(link).then(res => {
-    if (!res.ok) {
-      showToast("Incorrect Join Poll link provided", "error");
-    } else {
-      window.location.href = link;
-    }
-  });
+  fetch(link)
+    .then(res => {
+      if (!res.ok) {
+        showToast("Incorrect Join Poll link provided", "error");
+      } else {
+        window.location.href = link;
+      }
+    })
+    .catch(() => showToast("Incorrect Join Poll link provided", "error"));
   if (!link) return;
 };
 
