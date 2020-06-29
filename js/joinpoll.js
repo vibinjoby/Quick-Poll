@@ -11,7 +11,7 @@ window.onload = function() {
     : "";
 
   if (pollLayout == 0) {
-    window.location.href = `/showpoll.html?pollId=${pollId}`;
+    window.location.href = `/viewtextpoll.html?pollId=${pollId}`;
   } else if (pollLayout == 1) {
     window.location.href = `/option-text-poll.html?pollId=${pollId}`;
   } else {

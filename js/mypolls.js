@@ -84,7 +84,7 @@ function deletePoll() {
 
 const navigateToPoll = (pollId, layoutId, result) => {
   if (layoutId == 0) {
-    window.location.href = `/showpoll.html?pollId=${pollId}&result=1`;
+    window.location.href = `/viewtextpoll.html?pollId=${pollId}&result=1`;
   } else if (layoutId == 1) {
     window.location.href = `/option-text-poll.html?pollId=${pollId}&result=1`;
   } else {
