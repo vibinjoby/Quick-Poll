@@ -1,4 +1,5 @@
 let noOfchoices = 0;
+var optionlist = [];
 const token = localStorage.getItem("token");
 var isPrivate = false;
 //Function onload
@@ -38,9 +39,6 @@ $(document).on("click", ".delete_Choicelist", function (delevent) {
 
 //Section on click create poll
 $(document).on("click", ".btn-create", function (createPoll) {
-  console.log(document.getElementById("create_Question").value + "printing");
-  //createlistPolls();
-
   if (noOfchoices > 1 && document.getElementById("create_Question").value) {
     //list of more than 1 option
     let is_sucess = checkmandatory();
@@ -54,7 +52,7 @@ $(document).on("click", ".btn-create", function (createPoll) {
     showToast("Please Enter all Mandatory feilds", true);
   }
 });
-var optionlist = [];
+
 function checkmandatory() {
   for (i = 0; i < noOfchoices; i++) {
     if (document.getElementById(`create_Choice${i}`).value) {
@@ -72,12 +70,14 @@ function checkmandatory() {
 }
 
 function createlistPolls() {
+  console.log("question", document.getElementById("create_Question").value);
+  console.log(optionlist);
+  console.log("isprivate", isPrivate);
   showLoadingPopup();
   fetch("https://quick-poll-server.herokuapp.com/create-polls/textPoll", {
     method: "POST",
     headers: {
-      "x-auth-token":
-        "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ZWVkMGFiNTYzNGRkOTQ0MGZhZWFkNGMiLCJuYW1lIjoieWFkaHUiLCJlbWFpbCI6InlhZGh1ZWthbWJhcmFtMTk5MkBnbWFpbC5jb20iLCJfX3YiOjB9.LtXvmo8CZxfbgkgDr2eowx6ih-mhV-OvYlurUeaA2Rc",
+      "x-auth-token": token,
     },
     body: {
       question: document.getElementById("create_Question").value,
@@ -90,7 +90,7 @@ function createlistPolls() {
       if (!res.ok) {
         throw new Error("HTTP Status" + res.status);
       }
-      return res.text();
+      return res.json();
     })
     .then((data) => {
       console.log(data);
