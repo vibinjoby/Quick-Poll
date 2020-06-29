@@ -114,7 +114,7 @@ function getResult() {
             document.getElementById("percentage_" + index).style.width =
               value + "%";
           }, 200);
-          document.getElementById("option-" + index).style.display = "none";
+          //document.getElementById("option-" + index).style.display = "none";
         }
       });
     } else {
