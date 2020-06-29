@@ -5,13 +5,15 @@ var imgset = [];
 //Function onload
 window.onload = function() {
   document.getElementById('grid_layout').style.display = 'none';
+  hideLoadingPopup();
   add_choices()//adding the first choice list
   add_choicesgrid()//adding the first choice grid
 };
 //function to add multple choices (options)
 function add_choices() {
   if (noOfchoices > 3){
-alert("Maximum number of choices reached");
+//alert("Maximum number of choices reached");
+console.log("Maximum number of list choices reached");
   }else{
     var table = document.getElementById("addChoice");
     var row = table.insertRow(noOfchoices);
@@ -41,12 +43,13 @@ alert("Maximum number of choices reached");
   function add_choicesgrid() {
    
     if (noOfgridChoice > 3){
-  alert("Maximum number of choices reached");
+  //alert("Maximum number of choices reached");
+  console.log("Maximum number of grid choices reached");
     }else{
       var addat = "grid-item"+(noOfgridChoice+1);
       var item = document.getElementById(addat);
       // document.getElementById(addat).insertAdjacentHTML("afterend", '<div class="grid-image"><img id ="gridupload" src="/assets/images/imageUpload.png" alt="Grid" ><label class= "uploadText" >Click to add image </label></div><input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice 0 ">'); 
-      var add = item.innerHTML = '<div id = "gridImg'+(noOfgridChoice+1)+'" class="grid-image"><div id="imgload" class="image"><input id="selectImg" type="file" style="display: none;"/> <img id ="upload" src="/assets/images/imageUpload.png" alt="Image Upload" ><label  for="selectImg" class= "uploadText" >Click to add image </label></div></div><input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice">';
+      var add = item.innerHTML = '<img id ="Cancel_'+(noOfgridChoice+1)+'"  class= "delete_Choicegrid" src="/assets/images/cancel.png" alt="Delete" ><div id = "gridImg'+(noOfgridChoice+1)+'" class="grid-image"><div id="imgload" class="image"><input id="selectImg" type="file" style="display: none;"/> <img id ="upload" src="/assets/images/imageUpload.png" alt="Image Upload" ><label  for="selectImg" class= "uploadText" >Click to add image </label></div></div><input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice">';
       console.log(" created = gridImg"+(noOfgridChoice+1));
       //document.getElementById(addat).appendChild(add);
       //      var add = item.innerHTML = '<div id = '+"gridImg"+noOfgridChoice+' class="grid-image"><div id="imgload" class="image"><input id="selectImg" type="file" style="display: none;"/> <img id ="upload" src="/assets/images/imageUpload.png" alt="Image Upload" ><label  for="selectImg" class= "uploadText" >Click to add image </label></div></div><input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice '+noOfgridChoice+''">';
@@ -90,6 +93,61 @@ $(document).on("click",".delete_Choicelist",function(delevent){
   $(delevent.target).closest("tr").remove();
   noOfchoices--;
 });
+$(document).on("click",".delete_Choicegrid",function(delevent){
+  $(delevent.target).closest("div").display=":none";
+  noOfgridChoice--;
+});
+$(document).on("click",".btn-create",function(createPoll){
+  //Section on click create poll
+ 
+  if(noOfchoices>1 && isGrid == false){
+    
+  }else{
+
+  }
+  if(noOfgridChoice>1 && isGrid == true){
+  }else{
+    
+  }
+  showLoadingPopup();
+});
+
+function post(urlParam, requestParams, callback) {
+  const url = "http://localhost:3000/api" + urlParam;
+  fetch(url, {
+    mode: "cors",
+    method: "POST",
+    body: JSON.stringify(requestParams),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (response) {
+      callback(true, response);
+    })
+    .catch(function (err) {
+      console.log(err);
+      callback(false, null);
+    });
+}
+
+/**
+ * Loading popup functions
+ */
+const showLoadingPopup = () => {
+  document.getElementById("loading-placeholder").style.display = "block";
+};
+
+const hideLoadingPopup = () => {
+  document.getElementById("loading-placeholder").style.display = "none";
+};
+
+const navigateToPoll = pollId => {
+  window.location.href = `/showpoll.html?pollId=${pollId}`;
+};
 
 /*
 $('input#selectImg').on('change', function () {

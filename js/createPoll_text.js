@@ -21,7 +21,25 @@ $(document).on("click",".delete_Choice",function(delevent){
   $(delevent.target).closest("tr").remove();
   noOfchoices--;
 });
+$(document).on("click",".btn-create",function(createPoll){
+  //$(createPoll.target).closest("tr").remove();
+  
+  showLoadingPopup();
+});
+/**
+ * Loading popup functions
+ */
+const showLoadingPopup = () => {
+  document.getElementById("loading-placeholder").style.display = "block";
+};
 
+const hideLoadingPopup = () => {
+  document.getElementById("loading-placeholder").style.display = "none";
+};
+
+const navigateToPoll = pollId => {
+  window.location.href = `/showpoll.html?pollId=${pollId}`;
+};
 
  
   
