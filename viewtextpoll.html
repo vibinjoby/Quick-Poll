@@ -1,76 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quick Poll</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-    <link rel="stylesheet" href="css/showPoll.css">
+    <link rel="stylesheet" href="css/showPoll.css" />
     <!--Navigation scripts-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/jwt-decode.min.js"></script>
     <script>
-        $(function () {
-            $("#nav-placeholder").load("navbar.html");
-        });
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
     </script>
     <!--End of Navigation scripts-->
     <script src="js/showpoll.js"></script>
 
     <!--Loading scripts-->
     <script>
-        $(function () {
-            $("#loading-placeholder").load("loading.html");
-        });
+      $(function () {
+        $("#loading-placeholder").load("loading.html");
+      });
     </script>
     <!--End of loading scripts-->
+  </head>
 
-</head>
-
-<body>
+  <body>
     <!--Loading bar-->
-    <div id=loading-placeholder></div>
+    <div id="loading-placeholder"></div>
     <!--end of Loading bar-->
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
     <!--end of Navigation bar-->
 
     <div class="poll-container">
-        <div class="poll-question-header">
-            <img src="assets/images/question_arrow@2x.png" width="20px" />
-            <p id="question">my first question</p>
+      <div class="poll-question-header">
+        <img src="assets/images/question_arrow@2x.png" width="20px" />
+        <p id="question">my first question</p>
+      </div>
+      <div class="content-container">
+        <div class="poll-options">
+          <div class="options">
+            <div class="progressBar"></div>
+            <p id="option-1"></p>
+          </div>
+          <div class="options">
+            <p id="option-2"></p>
+          </div>
+          <div class="options">
+            <p id="option-3"></p>
+          </div>
+          <div class="options">
+            <p id="option-4"></p>
+          </div>
         </div>
-        <div class="content-container">
-            <div class="poll-options">
-                <div class="options">
-                    <p id="option-1"></p>
-                </div>
-                <div class="options">
-                    <p id="option-2"></p>
-                </div>
-                <div class="options">
-                    <p id="option-3"></p>
-                </div>
-                <div class="options">
-                    <p id="option-4"></p>
-                </div>
-            </div>
-        </div>
+      </div>
 
-        <div class="footer-container">
-            <button class="vote-btn">
-                <div id="btn_container"><img src="assets/images/tick_button@2x.png" width="25" height="25" /></div>
-                <span>Vote</span>
-            </button>
-            <button class="btn btn-primary" id="view-result-btn">View Results</button>
-        </div>
+      <div class="footer-container">
+        <button class="vote-btn">
+          <div id="btn_container">
+            <img
+              src="assets/images/tick_button@2x.png"
+              width="25"
+              height="25"
+            />
+          </div>
+          <span>Vote</span>
+        </button>
+        <button class="btn btn-primary" id="view-result-btn">
+          View Results
+        </button>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>
