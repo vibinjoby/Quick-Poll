@@ -5,7 +5,7 @@ const token = localStorage.getItem("token");
 var question = document.getElementById("create_Question");
 
 //Function onload
-window.onload = function() {
+window.onload = function () {
   document.getElementById("grid_layout").style.display = "none";
   hideLoadingPopup();
   add_choices(); //adding the first choice list
@@ -84,13 +84,13 @@ var data;
 let index = 0;
 var imgset = [];
 
-$(document).on("click", ".uploadText", function(event) {
+$(document).on("click", ".uploadText", function (event) {
   console.log(event);
   index = event.target.id.split("_")[1];
   $("#selectImg" + index).click();
 });
 
-$(document).on("change", "input[type='file']", function(event) {
+$(document).on("change", "input[type='file']", function (event) {
   console.log(event);
   if (this.files && this.files[0]) {
     img = document.querySelector("#upload");
@@ -117,18 +117,16 @@ function imageIsLoaded() {
   }
 }
 
-$(document).on("click", ".delete_Choicelist", function(delevent) {
+$(document).on("click", ".delete_Choicelist", function (delevent) {
   if (noOfchoices > 1) {
-    $(delevent.target)
-      .closest("tr")
-      .remove();
+    $(delevent.target).closest("tr").remove();
     noOfchoices--;
   } else {
     showToast("Minimum Number of Choice reached", true);
   }
 });
 
-$(document).on("click", ".delete_Choicegrid", function(delevent) {
+$(document).on("click", ".delete_Choicegrid", function (delevent) {
   //console.log(delevent.target.closest("div").id);
   console.log(delevent.target.closest("div").id);
   if (noOfgridChoice > 1) {
@@ -140,7 +138,7 @@ $(document).on("click", ".delete_Choicegrid", function(delevent) {
   }
 });
 //Section on click create poll
-$(document).on("click", ".btn-create", function(createPoll) {
+$(document).on("click", ".btn-create", function (createPoll) {
   console.log(document.getElementById("create_Question").text + "printing");
   if (noOfchoices > 1 && isGrid == false && question.text != "") {
     //list of more than 1 option
@@ -165,24 +163,24 @@ function creategridPolls() {
   formData.append("question_text", "Hi hiw are you");
   formData.append("is_private", true);
 
-  imgset.map(img => formData.append("options", img));
+  imgset.map((img) => formData.append("options", img));
   fetch(`https://quick-poll-server.herokuapp.com/create-polls/imagePoll`, {
     method: "POST",
     headers: {
-      "x-auth-token": token
+      "x-auth-token": token,
     },
-    body: formData
+    body: formData,
   })
-    .then(res => {
+    .then((res) => {
       if (!res.ok) {
         throw new Error("HTTP Status" + res.status);
       }
       return res.text();
     })
-    .then(data => {
+    .then((data) => {
       console.log(data);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       hideLoadingPopup();
       showToast(err.message);
@@ -190,26 +188,10 @@ function creategridPolls() {
     });
 }
 
-function post(urlParam, requestParams, callback) {
-  const url = "http://localhost:3000/api" + urlParam;
-  fetch(url, {
-    mode: "cors",
-    method: "POST",
-    body: JSON.stringify(requestParams),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(response) {
-      callback(true, response);
-    })
-    .catch(function(err) {
-      console.log(err);
-      callback(false, null);
-    });
+function createlistPolls() {
+  let formData = new FormData();
+  formData.append("is_question_image", "Y");
+  ormData.append("is_private", isPrivate);
 }
 const showToast = (message, error) => {
   Toastify({
@@ -220,7 +202,7 @@ const showToast = (message, error) => {
     backgroundColor: !error
       ? "linear-gradient(to right, #00b09b, #96c93d)"
       : "linear-gradient(to right,#e01000,orange)",
-    duration: 3000
+    duration: 3000,
   }).showToast();
 };
 
@@ -235,7 +217,7 @@ const hideLoadingPopup = () => {
   document.getElementById("loading-placeholder").style.display = "none";
 };
 
-const navigateToPoll = pollId => {
+const navigateToPoll = (pollId) => {
   window.location.href = `/showpoll.html?pollId=${pollId}`;
 };
 
