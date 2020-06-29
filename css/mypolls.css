@@ -83,6 +83,15 @@ main .card p {
   text-align: right;
   background: rgba(0, 0, 0, 0.03);
 }
+.copy-link-container {
+  margin-left: 10px;
+  float: left;
+}
+
+.copy-link-container a img {
+  width: 25px;
+  height: 25px;
+}
 
 .votes-container p {
   color: #17ac3a;
