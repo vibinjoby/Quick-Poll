@@ -87,238 +87,221 @@
   margin-left: 79px;
 }
 
-
-
 #Box {
-    width: 70%;
-    background-color: #F3F3F3;
-    height: 100%;
-    width: 80%;
-    margin: 2% 10%;
-    padding: 0% 5%;
-    display: block;
+  width: 70%;
+  background-color: #f3f3f3;
+  height: 100%;
+  width: 80%;
+  margin: 2% 10%;
+  padding: 0% 5%;
+  display: block;
 }
-  .Question{
-    
-    background-color: #ffffff;
-    width: 100%;
-    font-size: 1em;
-    font-family: "Proxima-Nova-Bold";
-    padding: 2% 0% ;
-    margin: 3% 0%;
-    word-wrap: break-word;
-    border: 0.3px solid #707070
-  }
+.Question {
+  background-color: #ffffff;
+  width: 100%;
+  font-size: 1em;
+  font-family: "Proxima-Nova-Bold";
+  padding: 2% 0%;
+  margin: 3% 0%;
+  word-wrap: break-word;
+  border: 0.3px solid #707070;
+}
 
-  #layouText{
+#layouText {
   vertical-align: 1em;
   font-family: "Proxima-Nova-Bold";
-  }
-  
-  .sel_Layout #listLayout{
-    vertical-align: 0.65em;
-    margin-left: 0.25em;
-    cursor: pointer;
-   
-  }
-  .sel_Layout #gridLayout{
-    margin-right: 0.25em;
-    vertical-align: 0.65em;
-    cursor: pointer;
-  }
- 
- 
-  .image {
-    background-color: #D4D4D4;
-    margin-top: 1%;
-    width: 100%;
-    
-  }
-  .grid-container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-     grid-gap: 5%;
-
-  }
-  .grid-image{
-   
-    background-color: #D4D4D4;
-    margin-top: 1%;
-    
-  }
-  #gridupload{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 15%;
-    text-align: center;
-    padding-top: 10%;
 }
-  .image  #upload{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 15%;
-    cursor: pointer;
-    text-align: center;
-    padding-top: 10%;
-  }
-  .uploadText{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    cursor: pointer;
-    font-family: "Proxima-Nova-Bold";
-    text-align: center;
-    color: white;
-    padding-bottom: 10%;
-  }
-  
-  .ChoiceOption{
-    
-    background-color: #ffffff;
-    width: 100%;
-    padding: 2% 0% ;
-    margin: 2% 0%;
-    font-size:5vw;
-    font-family: "Proxima-Nova-Bold";
-    word-wrap: break-word;
-    border: 0.3px solid #707070
-  }
 
-  .choice { 
-    width: 100%;
-  }
+.sel_Layout #listLayout {
+  vertical-align: 0.65em;
+  margin-left: 0.25em;
+  cursor: pointer;
+}
+.sel_Layout #gridLayout {
+  margin-right: 0.25em;
+  vertical-align: 0.65em;
+  cursor: pointer;
+}
 
-  .add_Choices {
-    margin-top: 5%;
-  }
+.image {
+  background-color: #d4d4d4;
+  margin-top: 1%;
+  width: 100%;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5%;
+}
+.grid-image {
+  background-color: #d4d4d4;
+  margin-top: 1%;
+}
+#gridupload {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+  text-align: center;
+  padding-top: 10%;
+}
+.image #upload {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 10%;
+}
+.uploadText {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  cursor: pointer;
+  font-family: "Proxima-Nova-Bold";
+  text-align: center;
+  color: white;
+  padding-bottom: 10%;
+}
 
-  .add_option{
-    background-color: white;
-    padding: 1em;
-    font-size: 1em;
-    cursor: pointer;
-    color: #F46368;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-    width: 25%;
-    
-    font-family: "Proxima-Nova-Bold";
-    text-align: center;
-    border: 2px dashed #707070
-  }
-  .add_option:active, 
- .add_option:focus 
- {
-     border:2px solid #707070; /* here configure as your needs */
-    
-  }
-  .add_option:hover {
-    background: #eee;
-  }
+.ChoiceOption {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 2% 0%;
+  margin: 2% 0%;
+  font-size: 5vw;
+  font-family: "Proxima-Nova-Bold";
+  word-wrap: break-word;
+  border: 0.3px solid #707070;
+}
 
-  #is_PrivatePoll imput{
-    margin-left: 2%;
-    color: #8A8A89;
-    font-family: "Proxima-Nova-Bold";
-  }
-  #is_PrivatePoll{
-    color: #8A8A89;
-    font-family: "Proxima-Nova-Bold";
-  }
+.choice {
+  width: 100%;
+}
 
-  #grid_layout{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-  }
-  #uploadedImg{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 450px;
-    max-width: 100%;
-    min-width: 50%;
-    min-height: 100px;
-  }
-  .ChoiceOptionlist{
-    background-color: #ffffff;
-    width: 90%;
-    padding: 2% 0% ;
-    margin: 2% 0%;
-    font-size:5vw;
-    font-family: "Proxima-Nova-Bold";
-    word-wrap: break-word;
-    border: 0.3px solid #707070
-  }
-  .delete_Choicelist{
-    width: 7%;
-    padding-left: 1%;
-    cursor: pointer;
-    padding-top: 1%;
-    padding-bottom: 1%;
-  }
-  .delete_Choicegrid{
-    width: 7%;
-    text-align: right;
-    padding-left: 1%;
-    cursor: pointer;
-    padding-top: 1%;
-    padding-bottom: 1%;
-  }
-  .AlertUser{
-    background-color: greenyellow;
-    color: green;
-    margin-top: 0;
-    margin-bottom: 0.5%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    border-radius: 0 0 10px 10px;
-    font-size: 1.5vw;
-  }
+.add_Choices {
+  margin-top: 5%;
+}
 
-  @media screen and (min-width: 601px) {
-    .ChoiceOption {
-      font-size: 2vw;
-    }
-    .uploadText{
-      font-size: 2vw;
-    }
-    .add_option {
-      font-size: 1.75vw;  
-    }
-    .ChoiceOptionlist{
-      font-size: 2vw;
-    }
-  }
-  
-  @media screen and (max-width: 600px) {
-    .ChoiceOption {
-      font-size: 2vw;
-    }
-    .uploadText{
-      font-size: 8px;
-    }
-    .add_option {
-      font-size: 2vw;  
-    }
-    .ChoiceOptionlist{
-      font-size: 2vw;
-    }
-  }
-  @media only screen and (max-width: 1000px) {
-    #poll-head p {
-      margin-left: 20px;
-      font-size: 22px;
-    }
-    #poll-head #btn {
-      margin-right: 15px;
-    }
-  }
+.add_option {
+  background-color: white;
+  padding: 1em;
+  font-size: 1em;
+  cursor: pointer;
+  color: #f46368;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  width: 25%;
 
-  
+  font-family: "Proxima-Nova-Bold";
+  text-align: center;
+  border: 2px dashed #707070;
+}
+.add_option:active,
+.add_option:focus {
+  border: 2px solid #707070; /* here configure as your needs */
+}
+.add_option:hover {
+  background: #eee;
+}
+
+#is_PrivatePoll imput {
+  margin-left: 2%;
+  color: #8a8a89;
+  font-family: "Proxima-Nova-Bold";
+}
+#is_PrivatePoll {
+  color: #8a8a89;
+  font-family: "Proxima-Nova-Bold";
+}
+
+#grid_layout {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+#uploadedImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 450px;
+  max-width: 100%;
+  min-width: 50%;
+  min-height: 100px;
+}
+.ChoiceOptionlist {
+  background-color: #ffffff;
+  width: 90%;
+  padding: 2% 0%;
+  margin: 2% 0%;
+  font-size: 5vw;
+  font-family: "Proxima-Nova-Bold";
+  word-wrap: break-word;
+  border: 0.3px solid #707070;
+}
+.delete_Choicelist {
+  width: 7%;
+  padding-left: 1%;
+  cursor: pointer;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.delete_Choicegrid {
+  width: 7%;
+  text-align: right;
+  padding-left: 1%;
+  cursor: pointer;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.imageGrid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 450px;
+  max-width: 100%;
+  min-width: 50%;
+  min-height: 100px;
+}
+@media screen and (min-width: 601px) {
+  .ChoiceOption {
+    font-size: 2vw;
+  }
+  .uploadText {
+    font-size: 2vw;
+  }
+  .add_option {
+    font-size: 1.75vw;
+  }
+  .ChoiceOptionlist {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .ChoiceOption {
+    font-size: 2vw;
+  }
+  .uploadText {
+    font-size: 8px;
+  }
+  .add_option {
+    font-size: 2vw;
+  }
+  .ChoiceOptionlist {
+    font-size: 2vw;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #poll-head p {
+    margin-left: 20px;
+    font-size: 22px;
+  }
+  #poll-head #btn {
+    margin-right: 15px;
+  }
+}

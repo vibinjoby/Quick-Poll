@@ -1,75 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quick Poll</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
 
     <!--Navigation scripts-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/css/CreatePoll_text.css">
-        <script src="/js/CreatePoll_text.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/CreatePoll_image.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link rel="stylesheet" href="/css/CreatePoll_text.css" />
+    <script src="/js/CreatePoll_text.js"></script>
+    <script src="js/jwt-decode.min.js"></script>
     <script>
-        $(function () {
-            $("#nav-placeholder").load("navbar.html");
-        });
+      $(function () {
+        $("#nav-placeholder").load("navbar.html");
+      });
     </script>
     <!--End of Navigation scripts-->
-</head>
+  </head>
 
-<body>
+  <body>
     <!--Navigation bar-->
     <div id="nav-placeholder"></div>
     <!--end of Navigation bar-->
-    <div id=loading-placeholder></div>
+    <div id="loading-placeholder"></div>
     <!--Navigation bar-->
 
     <header id="poll-head">
-        <p>PUBLIC POLLS</p>
-        <div id="btn"class="btn-create"><button class="create-poll-btn" data-toggle="modal" data-target="#createpollmodal">CREATE</button>
-        </div>
-        <hr class="divider" />
+      <p>PUBLIC POLLS</p>
+      <div id="btn" class="btn-create">
+        <button
+          class="create-poll-btn"
+          data-toggle="modal"
+          data-target="#createpollmodal"
+        >
+          CREATE
+        </button>
+      </div>
+      <hr class="divider" />
     </header>
 
-    <section id = 'Box' >
-        <input type="text" id="create_Question" class="Question" placeholder="  Ask your question here"/>
-        <br>
-        <section id = "list_layout">
-            <table  id = "addChoice" class="choice">
-                <!--Loading scripts for List <input type="text" id="create_Choice '+ noOfchoices +'" class="ChoiceOption" placeholder="  Enter Answer choice 1 "/> <img id ="Cancel" onclick="deleteEntry()" class= "delete_Choice"src="/assets/images/cancel.png" alt="Delete" > -->   
-            </table>
-            <div class="add_Choices">
-                <button onclick="add_choices()" type="button" id="" class="add_option" > Add Choice </button>
-            </div>
-            <input type="checkbox" id="is_PrivatePoll" name="private" value="public">
-            <label id="is_PrivatePoll" for="private"> Private Poll</label><br>
-        </section>
+    <section id="Box">
+      <input
+        type="text"
+        id="create_Question"
+        class="Question"
+        placeholder="  Ask your question here"
+      />
+      <br />
+      <section id="list_layout">
+        <table id="addChoice" class="choice">
+          <!--Loading scripts for List <input type="text" id="create_Choice '+ noOfchoices +'" class="ChoiceOption" placeholder="  Enter Answer choice 1 "/> <img id ="Cancel" onclick="deleteEntry()" class= "delete_Choice"src="/assets/images/cancel.png" alt="Delete" > -->
+        </table>
+        <div class="add_Choices">
+          <button
+            onclick="add_choices()"
+            type="button"
+            id=""
+            class="add_option"
+          >
+            Add Choice
+          </button>
+        </div>
+        <input
+          type="checkbox"
+          id="is_PrivatePoll"
+          name="private"
+          value="public"
+        />
+        <label id="is_PrivatePoll" for="private"> Private Poll</label><br />
+      </section>
     </section>
     <!-- Logout modal popup -->
-    <div class="modal fade" id="MaximumLimitModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div
+      class="modal fade"
+      id="MaximumLimitModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="logoutModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="logoutModalLabel">The Maximum number of options reached</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Back</button>
-            </div>
+          <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">
+              The Maximum number of options reached
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Back
+            </button>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</body>
-
+  </body>
 </html>

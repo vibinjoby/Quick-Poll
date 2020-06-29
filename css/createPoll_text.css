@@ -3,7 +3,7 @@
   margin-top: 10px;
   float: right;
 }
-.join-poll-btn {
+.create-poll-btn {
   border: 0;
   transition: transform 0.5s;
   border-radius: 6px;
@@ -14,11 +14,11 @@
   font-family: "Proxima-Nova-Regular";
 }
 
-.join-poll-btn:focus {
+.create-poll-btn:focus {
   outline: none;
 }
 
-.join-poll-btn:hover {
+.create-poll-btn:hover {
   transform: scale(1.02);
   color: lightgray;
 }
@@ -88,140 +88,134 @@
 }
 
 #Box {
-    width: 70%;
-    background-color: #F3F3F3;
-    height: 100%;
-    width: 80%;
-    margin: 2% 10%;
-    padding: 0% 5%;
-    display: block;
+  width: 70%;
+  background-color: #f3f3f3;
+  height: 100%;
+  width: 80%;
+  margin: 2% 10%;
+  padding: 0% 5%;
+  display: block;
 }
-  .Question{
-    
-    background-color: #ffffff;
-    width: 100%;
-    font-size: 1em;
-    font-family: "Proxima-Nova-Bold";
-    padding: 2% 0% ;
-    margin: 3% 0%;
-    word-wrap: break-word;
-    border: 0.3px solid #707070
-  }
+.Question {
+  background-color: #ffffff;
+  width: 100%;
+  font-size: 1em;
+  font-family: "Proxima-Nova-Bold";
+  padding: 2% 0%;
+  margin: 3% 0%;
+  word-wrap: break-word;
+  border: 0.3px solid #707070;
+}
 
-   
-  .ChoiceOption{
-    background-color: #ffffff;
-    width: 90%;
-    padding: 2% 0% ;
-    margin: 2% 0%;
-    font-size:5vw;
-    font-family: "Proxima-Nova-Bold";
-    word-wrap: break-word;
-    border: 0.3px solid #707070
-  }
-  .delete_Choicelist{
-    width: 7%;
-    padding-left: 1%;
-    cursor: pointer;
-    padding-top: 1%;
-    padding-bottom: 1%;
-  }
+.ChoiceOption {
+  background-color: #ffffff;
+  width: 90%;
+  padding: 2% 0%;
+  margin: 2% 0%;
+  font-size: 5vw;
+  font-family: "Proxima-Nova-Bold";
+  word-wrap: break-word;
+  border: 0.3px solid #707070;
+}
+.delete_Choicelist {
+  width: 7%;
+  padding-left: 1%;
+  cursor: pointer;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
 
-  .choice { 
-    width: 100%;
-    display: grid;
-  }
+.choice {
+  width: 100%;
+  display: grid;
+}
 
-  .add_Choices {
-    margin-top: 5%;
-  }
+.add_Choices {
+  margin-top: 5%;
+}
 
-  .add_option{
-    background-color: white;
-    padding: 1em;
-    font-size: 1em;
-    cursor: pointer;
-    color: #F46368;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-    width: 25%;
-    
-    font-family: "Proxima-Nova-Bold";
-    text-align: center;
-    border: 2px dashed #707070
-  }
-  .add_option:active, 
- .add_option:focus 
- {
-     border:2px solid #707070; /* here configure as your needs */
-    
-  }
-  .add_option:hover {
-    background: #eee;
-  }
+.add_option {
+  background-color: white;
+  padding: 1em;
+  font-size: 1em;
+  cursor: pointer;
+  color: #f46368;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  width: 25%;
 
-  #is_PrivatePoll imput{
-    margin-left: 2%;
-    color: #8A8A89;
-    font-family: "Proxima-Nova-Bold";
-  }
-  #is_PrivatePoll{
-    color: #8A8A89;
-    font-family: "Proxima-Nova-Bold";
-  }
+  font-family: "Proxima-Nova-Bold";
+  text-align: center;
+  border: 2px dashed #707070;
+}
+.add_option:active,
+.add_option:focus {
+  border: 2px solid #707070; /* here configure as your needs */
+}
+.add_option:hover {
+  background: #eee;
+}
 
-  .modal {
-    text-align: center;
-    margin-top: 50px;
+#is_PrivatePoll imput {
+  margin-left: 2%;
+  color: #8a8a89;
+  font-family: "Proxima-Nova-Bold";
+}
+#is_PrivatePoll {
+  color: #8a8a89;
+  font-family: "Proxima-Nova-Bold";
+}
+
+.modal {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.modal::before {
+  content: "";
+  display: inline-block;
+  height: 80%;
+  margin-right: -4px;
+  vertical-align: middle;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 600px) {
+  .add_option {
+    font-size: 1.5vw;
   }
-  
-  .modal::before {
-    content: "";
-    display: inline-block;
-    height: 80%;
-    margin-right: -4px;
-    vertical-align: middle;
+  .ChoiceOption {
+    font-size: 1.25vw;
   }
-  
-  .modal-dialog {
-    display: inline-block;
-    text-align: left;
-    vertical-align: middle;
+  .Question {
+    font-size: 1.5vw;
   }
-  
- 
-  @media screen and (min-width: 600px) {
-    .add_option {
-      font-size: 1.5vw;
-    }
-    .ChoiceOption{
-      font-size: 1.25vw;
-    }
-    .Question{
-      font-size: 1.5vw;
-    }
+}
+
+@media screen and (max-width: 600px) {
+  .add_option {
+    font-size: 1.25vw;
   }
-  
-  @media screen and (max-width: 600px) {
-    .add_option {
-      font-size: 1.25vw;  
-      
-    }
-    .ChoiceOption{
-      font-size: 1.5vw;
-    }
-    .Question{
-      font-size: 2vw;
-    }
+  .ChoiceOption {
+    font-size: 1.5vw;
   }
-  @media only screen and (max-width: 1000px) {
-    #poll-head p {
-      margin-left: 20px;
-      font-size: 22px;
-    }
-    #poll-head #btn {
-      margin-right: 15px;
-    }
+  .Question {
+    font-size: 2vw;
   }
+}
+@media only screen and (max-width: 1000px) {
+  #poll-head p {
+    margin-left: 20px;
+    font-size: 22px;
+  }
+  #poll-head #btn {
+    margin-right: 15px;
+  }
+}
