@@ -3,7 +3,7 @@ var optionlist = [];
 const token = localStorage.getItem("token");
 var isPrivate = false;
 //Function onload
-window.onload = function () {
+window.onload = function() {
   hideLoadingPopup();
   add_choices(); //adding the first choice list
 };
@@ -28,9 +28,11 @@ function add_choices() {
   }
 }
 
-$(document).on("click", ".delete_Choicelist", function (delevent) {
+$(document).on("click", ".delete_Choicelist", function(delevent) {
   if (noOfchoices > 1) {
-    $(delevent.target).closest("tr").remove();
+    $(delevent.target)
+      .closest("tr")
+      .remove();
     noOfchoices--;
   } else {
     showToast("Minimum Number of Choice reached", true);
@@ -38,7 +40,7 @@ $(document).on("click", ".delete_Choicelist", function (delevent) {
 });
 
 //Section on click create poll
-$(document).on("click", ".btn-create", function (createPoll) {
+$(document).on("click", ".btn-create", function(createPoll) {
   if (noOfchoices > 1 && document.getElementById("create_Question").value) {
     //list of more than 1 option
     let is_sucess = checkmandatory();
@@ -73,34 +75,35 @@ function createlistPolls() {
   console.log(optionlist);
   console.log("isprivate", isPrivate);
   showLoadingPopup();
+
   fetch(`https://quick-poll-server.herokuapp.com/create-polls/textPoll`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
-      "x-auth-token": token,
+      "x-auth-token": token
     },
     body: JSON.stringify({
       question: document.getElementById("create_Question").value,
       options: optionlist,
-      is_private: isPrivate,
-    }),
+      is_private: isPrivate
+    })
   })
-    .then((res) => {
+    .then(res => {
       console.log(res);
       if (!res.ok) {
         throw new Error("HTTP Status" + res.status);
       }
       return res.json();
     })
-    .then((data) => {
+    .then(data => {
       console.log(data);
       showToast("Created Text poll successfully");
       hideLoadingPopup();
       window.location.href = "/mypolls.html";
       //navigate to my polls
     })
-    .catch((err) => {
+    .catch(err => {
       console.log(err);
       hideLoadingPopup();
       showToast("Something went wrong");
@@ -118,7 +121,7 @@ const showToast = (message, error) => {
     backgroundColor: !error
       ? "linear-gradient(to right, #00b09b, #96c93d)"
       : "linear-gradient(to right,#e01000,orange)",
-    duration: 3000,
+    duration: 3000
   }).showToast();
 };
 
@@ -133,6 +136,6 @@ const hideLoadingPopup = () => {
   document.getElementById("loading-placeholder").style.display = "none";
 };
 
-const navigateToPoll = (pollId) => {
+const navigateToPoll = pollId => {
   window.location.href = `/showpoll.html?pollId=${pollId}`;
 };
