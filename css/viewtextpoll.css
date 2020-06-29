@@ -38,10 +38,10 @@
 }
 
 .options {
-  height: 50px;
+  height: 60px;
 }
 
-.poll-options .pb_percentage {
+.pb_percentage {
   width: 0%;
   color: black;
   border: 1px solid #608db7;
@@ -119,9 +119,16 @@
   background: #f5f5f5;
   padding: 0 40px 40px 30px;
 }
+
 .progressBar {
   margin-top: -10px;
   display: none;
+  height: 50px;
+}
+
+.percentage_value {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 @media only screen and (max-width: 1000px) {

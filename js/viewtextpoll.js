@@ -99,13 +99,16 @@ function getResult() {
       [1, 2, 3, 4].forEach(function (index) {
         if (response.hasOwnProperty(index)) {
           let value = response[index];
-          document.getElementById("percentage_" + index).style.width =
-            value + "%";
+
           document.getElementById("percentage_value_" + index).innerText =
             value + "%";
           document.getElementsByClassName("progressBar")[
             index - 1
           ].style.display = "flex";
+          setTimeout(function () {
+            document.getElementById("percentage_" + index).style.width =
+              value + "%";
+          }, 200);
           document.getElementById("option-" + index).style.display = "none";
         }
       });
