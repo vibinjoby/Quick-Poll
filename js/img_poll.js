@@ -68,7 +68,7 @@ function updateView() {
         '<label id="label_' +
         key +
         '" class="font-lg proxima-light option-text center">' +
-        optionTexts[1] +
+        optionTexts[key - 1] +
         "</label>";
       options = options + "</div>";
       options = options + "</div>";
@@ -78,6 +78,7 @@ function updateView() {
   document.getElementById("option_container").innerHTML = options;
 
   if (isResult == 1) {
+    isResultFetched = true;
     getResult();
   }
 }
