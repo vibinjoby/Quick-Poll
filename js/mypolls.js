@@ -8,7 +8,7 @@ window.onload = () => {
 
 function copyLink(pollId, pollLayout) {
   const el = document.createElement("textarea");
-  el.value = `https://quick-poll-server.herokuapp.com/joinpoll.html?pollId=${pollId}&pollLayout=${pollLayout}`;
+  el.value = `https://quick-poll.netlify.app/joinpoll.html?pollId=${pollId}&pollLayout=${pollLayout}`;
   el.setAttribute("readonly", "");
   document.body.appendChild(el);
   const selected =
