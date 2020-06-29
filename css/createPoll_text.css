@@ -1,3 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap");
+
+@font-face {
+  font-family: "Proxima-Nova-Alt-Light";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Light.woff") format("woff"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Light.ttf") format("opentype");
+}
+@font-face {
+  font-family: "Proxima-Nova-Bold";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Bold.otf") format("otf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Proxima-Nova-Regular";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Regular.ttf") format("otf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Regular.ttf")
+      format("opentype");
+}
 #poll-head #btn {
   margin-right: 83px;
   margin-top: 10px;
@@ -113,7 +133,18 @@
   padding: 2% 0%;
   margin: 2% 0%;
   font-size: 5vw;
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
+  word-wrap: break-word;
+  border: 0.3px solid #707070;
+}
+
+.ChoiceOptionlist {
+  background-color: #ffffff;
+  width: 90%;
+  padding: 2% 0%;
+  margin: 2% 0%;
+  font-size: 5vw;
+  font-family: "Proxima-Nova-Regular";
   word-wrap: break-word;
   border: 0.3px solid #707070;
 }
@@ -145,8 +176,7 @@
   margin-right: auto;
   cursor: pointer;
   width: 25%;
-
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
   text-align: center;
   border: 2px dashed #707070;
 }
@@ -161,11 +191,11 @@
 #is_PrivatePoll imput {
   margin-left: 2%;
   color: #8a8a89;
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
 }
 #is_PrivatePoll {
   color: #8a8a89;
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
 }
 
 .modal {
@@ -189,25 +219,31 @@
 
 @media screen and (min-width: 600px) {
   .add_option {
-    font-size: 1.5vw;
-  }
-  .ChoiceOption {
     font-size: 1.25vw;
   }
+  .ChoiceOption {
+    font-size: 1vw;
+  }
   .Question {
-    font-size: 1.5vw;
+    font-size: 1.25vw;
+  }
+  .ChoiceOptionlist {
+    font-size: 1vw;
   }
 }
 
 @media screen and (max-width: 600px) {
   .add_option {
-    font-size: 1.25vw;
+    font-size: 2vw;
   }
   .ChoiceOption {
     font-size: 1.5vw;
   }
   .Question {
-    font-size: 2vw;
+    font-size: 4vw;
+  }
+  .ChoiceOptionlist {
+    font-size: 3vw;
   }
 }
 @media only screen and (max-width: 1000px) {

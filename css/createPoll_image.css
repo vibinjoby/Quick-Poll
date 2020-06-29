@@ -1,3 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap");
+
+@font-face {
+  font-family: "Proxima-Nova-Alt-Light";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Light.woff") format("woff"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Light.ttf") format("opentype");
+}
+@font-face {
+  font-family: "Proxima-Nova-Bold";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Bold.otf") format("otf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: "Proxima-Nova-Regular";
+  src: url("../assets/fonts/ProximaNova/ProximaNova-Regular.ttf") format("otf"),
+    url("../assets/fonts/ProximaNova/ProximaNova-Regular.ttf")
+      format("opentype");
+}
 #poll-head #btn {
   margin-right: 83px;
   margin-top: 10px;
@@ -100,7 +119,7 @@
   background-color: #ffffff;
   width: 100%;
   font-size: 1em;
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
   padding: 2% 0%;
   margin: 3% 0%;
   word-wrap: break-word;
@@ -160,7 +179,7 @@
   margin-right: auto;
   width: 50%;
   cursor: pointer;
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
   text-align: center;
   color: white;
   padding-bottom: 10%;
@@ -172,7 +191,7 @@
   padding: 2% 0%;
   margin: 2% 0%;
   font-size: 5vw;
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
   word-wrap: break-word;
   border: 0.3px solid #707070;
 }
@@ -196,8 +215,7 @@
   margin-right: auto;
   cursor: pointer;
   width: 25%;
-
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
   text-align: center;
   border: 2px dashed #707070;
 }
@@ -212,11 +230,11 @@
 #is_PrivatePoll imput {
   margin-left: 2%;
   color: #8a8a89;
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
 }
 #is_PrivatePoll {
   color: #8a8a89;
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
 }
 
 #grid_layout {
@@ -239,7 +257,7 @@
   padding: 2% 0%;
   margin: 2% 0%;
   font-size: 5vw;
-  font-family: "Proxima-Nova-Bold";
+  font-family: "Proxima-Nova-Regular";
   word-wrap: break-word;
   border: 0.3px solid #707070;
 }
