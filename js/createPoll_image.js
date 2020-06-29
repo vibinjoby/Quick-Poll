@@ -166,7 +166,7 @@ function creategridPolls() {
   formData.append("is_private", true);
 
   imgset.map(img => formData.append("options", img));
-  fetch(`http://localhost:5000/create-polls/imagePoll`, {
+  fetch(`https://quick-poll-server.herokuapp.com/create-polls/imagePoll`, {
     method: "POST",
     headers: {
       "x-auth-token": token
