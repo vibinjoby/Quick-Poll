@@ -56,12 +56,6 @@ const animateOptions = () => {
       scale: 0.5
     });
   });
-  tl.from(".footer-container", {
-    duration: 2,
-    z: -100,
-    opacity: 0,
-    scale: 0.5
-  });
 };
 
 /**
