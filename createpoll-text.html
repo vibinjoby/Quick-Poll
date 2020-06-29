@@ -27,10 +27,14 @@
     ></script>
     <link rel="stylesheet" href="/css/CreatePoll_image.css" />
     <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+  />
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/toastify-js"
+  ></script>
     <link rel="stylesheet" href="/css/CreatePoll_text.css" />
     <script src="/js/CreatePoll_text.js"></script>
     <script src="js/jwt-decode.min.js"></script>
@@ -68,18 +72,17 @@
         type="text"
         id="create_Question"
         class="Question"
-        placeholder="  Ask your question here"
+        placeholder="  Ask your poll question "
       />
       <br />
       <section id="list_layout">
         <table id="addChoice" class="choice">
-          <!--Loading scripts for List <input type="text" id="create_Choice '+ noOfchoices +'" class="ChoiceOption" placeholder="  Enter Answer choice 1 "/> <img id ="Cancel" onclick="deleteEntry()" class= "delete_Choice"src="/assets/images/cancel.png" alt="Delete" > -->
+          <!--Loading scripts for List <input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice 1 "/>  -->
         </table>
         <div class="add_Choices">
           <button
             onclick="add_choices()"
             type="button"
-            id=""
             class="add_option"
           >
             Add Choice
@@ -93,38 +96,5 @@
         />
         <label id="is_PrivatePoll" for="private"> Private Poll</label><br />
       </section>
-    </section>
-    <!-- Logout modal popup -->
-    <div
-      class="modal fade"
-      id="MaximumLimitModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="logoutModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="logoutModalLabel">
-              The Maximum number of options reached
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">
-              Back
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>

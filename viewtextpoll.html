@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Quick Poll</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" href="css/viewtextpoll.css" />
     <!--Navigation scripts-->
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -21,17 +22,8 @@
       });
     </script>
     <!--End of Navigation scripts-->
-    <script src="js/viewtextpoll.js"></script>
-
-    <!--Loading scripts-->
-    <script>
-      $(function () {
-        $("#loading-placeholder").load("loading.html");
-      });
-    </script>
-    <!--End of loading scripts-->
+    <script type="module" src="js/viewtextpoll.js"></script>
   </head>
-
   <body>
     <!--Loading bar-->
     <div id="loading-placeholder"></div>
@@ -48,34 +40,37 @@
       <div class="content-container">
         <div class="poll-options">
           <div class="options">
-            <p id="option-1"></p>
+            <div class="progressBar flex">
+              <div id="percentage_1" class="pb_percentage"></div>
+              <label id="percentage_value_1" class="percentage_value"></label>
+            </div>
+            <p id="option-1" class="option"></p>
           </div>
+
           <div class="options">
-            <p id="option-2"></p>
+            <div class="progressBar flex">
+              <div id="percentage_2" class="pb_percentage"></div>
+              <label id="percentage_value_2" class="percentage_value"></label>
+            </div>
+            <p id="option-2" class="option"></p>
           </div>
+
           <div class="options">
-            <p id="option-3"></p>
+            <div class="progressBar flex">
+              <div id="percentage_3" class="pb_percentage"></div>
+              <label id="percentage_value_3" class="percentage_value"></label>
+            </div>
+            <p id="option-3" class="option"></p>
           </div>
+
           <div class="options">
-            <p id="option-4"></p>
+            <div class="progressBar flex">
+              <div id="percentage_4" class="pb_percentage"></div>
+              <label id="percentage_value_4" class="percentage_value"></label>
+            </div>
+            <p id="option-4" class="option"></p>
           </div>
         </div>
-      </div>
-
-      <div class="footer-container">
-        <button class="vote-btn">
-          <div id="btn_container">
-            <img
-              src="assets/images/tick_button@2x.png"
-              width="25"
-              height="25"
-            />
-          </div>
-          <span>Vote</span>
-        </button>
-        <button class="btn btn-primary" id="view-result-btn">
-          View Results
-        </button>
       </div>
     </div>
   </body>

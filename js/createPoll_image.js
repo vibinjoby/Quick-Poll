@@ -3,6 +3,7 @@ let noOfgridChoice = 0;
 var isGrid = false;
 const token = localStorage.getItem("token");
 var question = document.getElementById("create_Question");
+var isPrivateimg = false;
 
 //Function onload
 window.onload = function () {
@@ -71,7 +72,9 @@ function add_choicesgrid() {
       (noOfgridChoice + 1) +
       '" style="display: none;"/> <img id ="upload" src="/assets/images/imageUpload.png" alt="Image Upload" ><label  id="id_' +
       (noOfgridChoice + 1) +
-      '" class= "uploadText" >Click to add image </label></div></div><input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice">');
+      '" class= "uploadText" >Click to add image </label></div></div><input type="text" id="create_Choicegrid ' +
+      (noOfgridChoice + 1) +
+      '" class="ChoiceOption" placeholder="  Enter Answer choice">');
     console.log(" created = gridImg" + (noOfgridChoice + 1));
     //document.getElementById(addat).appendChild(add);
     //var add = item.innerHTML = '<div id = '+"gridImg"+noOfgridChoice+' class="grid-image"><div id="imgload" class="image"><input id="selectImg" type="file" style="display: none;"/> <img id ="upload" src="/assets/images/imageUpload.png" alt="Image Upload" ><label  for="selectImg" class= "uploadText" >Click to add image </label></div></div><input type="text" id="create_Choice" class="ChoiceOption" placeholder="  Enter Answer choice '+noOfgridChoice+''">';
@@ -112,7 +115,8 @@ function imageIsLoaded() {
     index = 0;
   } else {
     var myDiv = document.getElementById("imgload");
-    myDiv.innerHTML = '<img id ="uploadedImg" src="" alt="Image" >';
+    myDiv.innerHTML =
+      '<img id ="uploadedImg" class=""uploadedList src="" alt="Image" >';
     document.getElementById("uploadedImg").src = this.src;
   }
 }
@@ -132,6 +136,9 @@ $(document).on("click", ".delete_Choicegrid", function (delevent) {
   if (noOfgridChoice > 1) {
     document.getElementById(delevent.target.closest("div").id).style.display =
       "none";
+    let position = delevent.target.closest("div").id + "".slice(-1);
+    imgset.remove(position);
+    optionlistimretgrid.remove(position);
     noOfgridChoice--;
   } else {
     showToast("Minimum Number of Choice reached", true);
@@ -139,30 +146,69 @@ $(document).on("click", ".delete_Choicegrid", function (delevent) {
 });
 //Section on click create poll
 $(document).on("click", ".btn-create", function (createPoll) {
-  console.log(document.getElementById("create_Question").text + "printing");
-  if (noOfchoices > 1 && isGrid == false && question.text != "") {
+  console.log(document.getElementById("create_Question").value + "printing");
+  if (
+    noOfchoices > 1 &&
+    isGrid == false &&
+    document.getElementById("create_Question").value
+  ) {
     //list of more than 1 option
     showToast("Created List layout poll");
-  } else if (noOfgridChoice > 1 && isGrid == true) {
+  } else if (
+    noOfgridChoice > 1 &&
+    isGrid == true &&
+    document.getElementById("create_Question").value
+  ) {
     //grid of more than 1 option
-    //checkformandatorygrid
-    creategridPolls();
-
-    showToast("Created grid layout poll");
+    let is_sucess = checkmandatorygrid();
+    if (is_sucess) {
+      creategridPolls();
+    } else {
+      showToast("Please Enter all Mandatory feilds", true);
+    }
   } else {
     showToast("Please Enter all Mandatory feilds", true);
   }
 });
 
+var optionlistimretgrid = [];
+function checkmandatorygrid() {
+  for (i = 1; i <= noOfgridChoice; i++) {
+    if (document.getElementById(`create_Choicegrid ${i}`).value) {
+      optionlistimretgrid.push(
+        document.getElementById(`create_Choicegrid ${i}`).value
+      );
+      if (document.getElementById("is_PrivatePoll").checked == true) {
+        isPrivate = true;
+      } else {
+        isPrivate = false;
+      }
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
+//For options
 function creategridPolls() {
-  var formData = new FormData();
-  formData.append("options", imgset[0]);
-  console.log(formData);
-  fetch(`http://localhost:5000/create-polls/imagePoll`, {
+  showLoadingPopup();
+  let formData = new FormData();
+  formData.append("is_options_image", "Y");
+  //:- TO-DO
+  console.log(optionlistimretgrid);
+  console.log(img);
+  formData.append("options_text", optionlistimretgrid.join());
+  formData.append(
+    "question_text",
+    document.getElementById("create_Question").value
+  );
+  formData.append("is_private", isPrivate);
+
+  imgset.map((img) => formData.append("options", img));
+  fetch(`https://quick-poll-server.herokuapp.com/create-polls/imagePoll`, {
     method: "POST",
     headers: {
-      "x-auth-token":
-        "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ZWVkMGFiNTYzNGRkOTQ0MGZhZWFkNGMiLCJuYW1lIjoieWFkaHUiLCJlbWFpbCI6InlhZGh1ZWthbWJhcmFtMTk5MkBnbWFpbC5jb20iLCJfX3YiOjB9.LtXvmo8CZxfbgkgDr2eowx6ih-mhV-OvYlurUeaA2Rc",
+      "x-auth-token": token,
     },
     body: formData,
   })
@@ -174,6 +220,9 @@ function creategridPolls() {
     })
     .then((data) => {
       console.log(data);
+      showToast("Created Text poll successfully");
+      hideLoadingPopup();
+      window.location.href = "/mypolls.html";
     })
     .catch((err) => {
       console.log(err);
@@ -183,26 +232,10 @@ function creategridPolls() {
     });
 }
 
-function post(urlParam, requestParams, callback) {
-  const url = "http://localhost:3000/api" + urlParam;
-  fetch(url, {
-    mode: "cors",
-    method: "POST",
-    body: JSON.stringify(requestParams),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (response) {
-      callback(true, response);
-    })
-    .catch(function (err) {
-      console.log(err);
-      callback(false, null);
-    });
+function createlistPolls() {
+  let formData = new FormData();
+  formData.append("is_question_image", "Y");
+  ormData.append("is_private", isPrivate);
 }
 const showToast = (message, error) => {
   Toastify({
