@@ -51,7 +51,14 @@ function updateView() {
         '" src="' +
         optionJSON[key] +
         '" class="option-img" />';
-      options = options + '<div class="text_container">';
+      options = options + '<div class="text_container flex flex-vertical">';
+      options =
+        options +
+        '<label id="label_' +
+        key +
+        '" class="font-lg proxima-light option-text center">' +
+        optionTexts[key - 1] +
+        "</label>";
       options =
         options +
         '<div id="pb_' +
@@ -63,13 +70,7 @@ function updateView() {
         key +
         '" class="font-lg proxima-light"></label>';
       options = options + "</div>";
-      options =
-        options +
-        '<label id="label_' +
-        key +
-        '" class="font-lg proxima-light option-text center">' +
-        optionTexts[key - 1] +
-        "</label>";
+
       options = options + "</div>";
       options = options + "</div>";
     }
@@ -120,7 +121,7 @@ function getResult() {
           document.getElementById("pb_" + index).style.width = value + "%";
           document.getElementById("label_percentage" + index).innerText =
             value + "%";
-          document.getElementById("label_" + index).style.display = "none";
+          //document.getElementById("label_" + index).style.display = "none";
         }
       });
     } else {

@@ -25,6 +25,12 @@ body {
   padding: 2%;
 }
 
+#result_option_container {
+  flex: 1;
+  justify-content: start;
+  align-items: center;
+}
+
 .que_option_holder {
   display: flex;
   flex-direction: row;
@@ -34,6 +40,13 @@ body {
 .img_holder {
   flex: 1;
   padding: 2%;
+}
+
+#result-option-holder {
+  flex: 1;
+  justify-content: start;
+  align-items: center;
+  display: none;
 }
 
 .option_holder {

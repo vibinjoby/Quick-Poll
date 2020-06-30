@@ -5,6 +5,7 @@ let questionResponse;
 let pollId;
 let isResult = 0;
 let isResultShown = false;
+let optionsText;
 
 window.onload = function () {
   const url_str = location.href;
@@ -35,7 +36,7 @@ function updateView() {
     questionResponse.question_img_url;
   let options = "";
   let indexes = [1, 2, 3, 4];
-  let optionsText = questionResponse.options_text;
+  optionsText = questionResponse.options_text;
 
   indexes.forEach(function (index) {
     if (optionsText.hasOwnProperty(index)) {
@@ -52,6 +53,7 @@ function updateView() {
   });
 
   document.getElementById("option_container").innerHTML = options;
+  document.getElementById("result-option-holder").innerHTML = options;
 
   if (isResult == 1) {
     getResult();
@@ -102,7 +104,7 @@ function getResult() {
       indexes.forEach(function (index) {
         if (response.hasOwnProperty(index)) {
           let value = response[index];
-          result = result + ' <div class="option_result flex">';
+          result = result + '<div class="option_result flex">';
           result = result + '<div class="result-holder flex">';
           result =
             result +
@@ -122,6 +124,7 @@ function getResult() {
       });
 
       document.getElementById("option_container").innerHTML = result;
+      document.getElementById("result-option-holder").style.display = "flex";
 
       setTimeout(function () {
         indexes.forEach(function (index) {
