@@ -282,8 +282,12 @@ function creategridPolls() {
     .then((data) => {
       console.log(data);
       showToast("Created Text poll successfully");
-      hideLoadingPopup();
-      window.location.href = "/mypolls.html";
+      setTimeout(function () {
+        hideLoadingPopup();
+        window.location.href = "/mypolls.html";
+      }, 2000);
+      //hideLoadingPopup();
+      //window.location.href = "/mypolls.html";
     })
     .catch((err) => {
       console.log(err);
@@ -329,8 +333,10 @@ function createlistPolls() {
     .then((data) => {
       console.log(data);
       showToast("Created Text poll successfully");
-      hideLoadingPopup();
-      window.location.href = "/mypolls.html";
+      setTimeout(function () {
+        hideLoadingPopup();
+        window.location.href = "/mypolls.html";
+      }, 2000);
     })
     .catch((err) => {
       console.log(err);
