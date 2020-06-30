@@ -104,7 +104,12 @@ $(document).on("change", "input[type='file']", function (event) {
     data = this.files[0];
     const files = event.target.files;
     //imgset.push(files[0]);
-    imgset[index] = files[0];
+    if (isGrid) {
+      imgset[index] = files[0];
+    } else {
+      imgset.push(files[0]);
+    }
+
     console.log(imgset.files + " ________________img set ________________");
     console.log(event);
     img.onload = imageIsLoaded;
@@ -223,9 +228,11 @@ function checkmandatorygrid() {
 function checkmandatorylist() {
   for (i = 0; i < noOfchoices; i++) {
     if (document.getElementById(`create_Choicelist${i}`).value) {
-      optionlistimretlist.push(
-        document.getElementById(`create_Choicelist${i}`).value
-      );
+      //optionlistimretlist.push(
+      optionlistimretlist[i] = document.getElementById(
+        `create_Choicelist${i}`
+      ).value;
+      // );
       if (document.getElementById("is_PrivatePoll").checked == true) {
         isPrivate = true;
       } else {
@@ -241,6 +248,7 @@ function checkmandatorylist() {
 //For options
 function creategridPolls() {
   console.log(imgset[0], optionlistimretgrid);
+
   showLoadingPopup();
   let formData = new FormData();
   formData.append("is_options_image", "Y");
@@ -286,20 +294,23 @@ function creategridPolls() {
 }
 
 function createlistPolls() {
+  console.log(optionlistimretlist, imgset[0]);
+  alert("here");
   let formData = new FormData();
-  formData.append("is_private", isPrivate);
   showLoadingPopup();
   //let formData = new FormData();
   formData.append("is_question_image", "Y");
+  formData.append("is_private", isPrivate);
   //:- TO-DO
   //console.log(optionlistimretgrid);
   //console.log(img);
+  optionlistimretlist = optionlistimretlist.slice(1);
   formData.append("options_text", optionlistimretlist.join());
   formData.append(
     "question_text",
     document.getElementById("create_Question").value
   );
-  imgset.reverse();
+  //imgset.reverse();
   imgset.map((img) => formData.append("question", img));
   fetch(`https://quick-poll-server.herokuapp.com/create-polls/imagePoll`, {
     method: "POST",
