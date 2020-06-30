@@ -4,13 +4,16 @@ var isGrid = false;
 const token = localStorage.getItem("token");
 var question = document.getElementById("create_Question");
 var isPrivateimg = false;
-
+var optionlistimretgrid = [];
+var optionlistimretlist = [];
 //Function onload
 window.onload = function () {
   document.getElementById("grid_layout").style.display = "none";
   hideLoadingPopup();
   add_choices(); //adding the first choice list
   add_choicesgrid(); //adding the first choice grid
+  optionlistimretgrid = [];
+  optionlistimretlist = [];
 };
 
 //function to add multple choices (options) in list
@@ -100,7 +103,9 @@ $(document).on("change", "input[type='file']", function (event) {
     img.src = URL.createObjectURL(this.files[0]);
     data = this.files[0];
     const files = event.target.files;
-    imgset.push(files[0]);
+    //imgset.push(files[0]);
+    imgset[index] = files[0];
+    console.log(imgset.files + " ________________img set ________________");
     console.log(event);
     img.onload = imageIsLoaded;
   }
@@ -182,16 +187,20 @@ $(document).on("click", ".btn-create", function (createPoll) {
   }
 });
 
-var optionlistimretgrid = [];
+//var optionlistimretgrid = [];
 function checkmandatorygrid() {
-  for (i = 1; i <= noOfgridChoice; i++) {
+  for (let i = 1; i <= noOfgridChoice; i++) {
     console.log(
-      imgset.length + "++++++++++++++++" + optionlistimretgrid.length
+      imgset.length +
+        "++++++++++++++++++++++++ length " +
+        optionlistimretgrid.length
     );
     if (document.getElementById(`create_Choicegrid ${i}`).value) {
-      optionlistimretgrid.push(
-        document.getElementById(`create_Choicegrid ${i}`).value
-      );
+      optionlistimretgrid[i] = document.getElementById(
+        `create_Choicegrid ${i}`
+      ).value;
+      //optionlistimretgrid.push(document.getElementById(`create_Choicegrid ${i}`).value);
+
       if (document.getElementById("is_PrivatePoll").checked == true) {
         isPrivate = true;
       } else {
@@ -199,11 +208,18 @@ function checkmandatorygrid() {
       }
     } else if (imgset.length != optionlistimretgrid.length) {
       return false;
+    } else {
+      return false;
     }
   }
+  console.log(
+    imgset.length +
+      "++++++++++++++++++++++++ length " +
+      optionlistimretgrid.length
+  );
   return true;
 }
-var optionlistimretlist = [];
+//var optionlistimretlist = [];
 function checkmandatorylist() {
   for (i = 0; i < noOfchoices; i++) {
     if (document.getElementById(`create_Choicelist${i}`).value) {
@@ -224,19 +240,22 @@ function checkmandatorylist() {
 
 //For options
 function creategridPolls() {
+  console.log(imgset[0], optionlistimretgrid);
   showLoadingPopup();
   let formData = new FormData();
   formData.append("is_options_image", "Y");
   //:- TO-DO
   console.log(optionlistimretgrid);
   console.log(img);
+  formData.append("is_private", isPrivate);
+  //optionlistimretgrid.reverse();
+  optionlistimretgrid = optionlistimretgrid.slice(1);
   formData.append("options_text", optionlistimretgrid.join());
   formData.append(
     "question_text",
     document.getElementById("create_Question").value
   );
-  formData.append("is_private", isPrivate);
-
+  imgset.reverse();
   imgset.map((img) => formData.append("options", img));
   fetch(`https://quick-poll-server.herokuapp.com/create-polls/imagePoll`, {
     method: "POST",
@@ -268,7 +287,7 @@ function creategridPolls() {
 
 function createlistPolls() {
   let formData = new FormData();
-
+  formData.append("is_private", isPrivate);
   showLoadingPopup();
   //let formData = new FormData();
   formData.append("is_question_image", "Y");
@@ -280,8 +299,7 @@ function createlistPolls() {
     "question_text",
     document.getElementById("create_Question").value
   );
-  formData.append("is_private", isPrivate);
-
+  imgset.reverse();
   imgset.map((img) => formData.append("question", img));
   fetch(`https://quick-poll-server.herokuapp.com/create-polls/imagePoll`, {
     method: "POST",
