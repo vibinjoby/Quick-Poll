@@ -295,7 +295,7 @@ function creategridPolls() {
 
 function createlistPolls() {
   console.log(optionlistimretlist, imgset[0]);
-  alert("here");
+
   let formData = new FormData();
   showLoadingPopup();
   //let formData = new FormData();
