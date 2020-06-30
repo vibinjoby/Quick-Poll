@@ -111,7 +111,6 @@ function imageIsLoaded() {
     var myDiv = document.getElementById("gridImg" + index);
     myDiv.innerHTML = `<img id ="uploadedImg${index}" class = "imageGrid" src="" alt="Image" >`;
     document.getElementById(`uploadedImg${index}`).src = img.src;
-    showToast(img.src, true);
     index = 0;
   } else {
     var myDiv = document.getElementById("imgload");
@@ -189,9 +188,9 @@ function checkmandatorygrid() {
     console.log(
       imgset.length + "++++++++++++++++" + optionlistimretgrid.length
     );
-    if (document.getElementById(`create_Choicegrid${i}`).value) {
+    if (document.getElementById(`create_Choicegrid ${i}`).value) {
       optionlistimretgrid.push(
-        document.getElementById(`create_Choicegrid${i}`).value
+        document.getElementById(`create_Choicegrid ${i}`).value
       );
       if (document.getElementById("is_PrivatePoll").checked == true) {
         isPrivate = true;
@@ -251,7 +250,7 @@ function creategridPolls() {
       if (!res.ok) {
         throw new Error("HTTP Status" + res.status);
       }
-      return res.json();
+      return res.text();
     })
     .then((data) => {
       console.log(data);

@@ -121,7 +121,7 @@
   width: 100%;
   font-size: 1em;
   font-family: "Proxima-Nova-Bold";
-  padding: 2% 0%;
+  padding: 2% 1%;
   margin: 3% 0%;
   word-wrap: break-word;
   border: 0.3px solid #707070;
@@ -141,7 +141,7 @@
 .ChoiceOptionlist {
   background-color: #ffffff;
   width: 90%;
-  padding: 2% 0%;
+  padding: 2% 1%;
   margin: 2% 0%;
   font-size: 5vw;
   font-family: "Proxima-Nova-Regular";
