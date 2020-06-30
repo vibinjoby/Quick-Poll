@@ -304,7 +304,7 @@ function createlistPolls() {
   //:- TO-DO
   //console.log(optionlistimretgrid);
   //console.log(img);
-  optionlistimretlist = optionlistimretlist.slice(1);
+
   formData.append("options_text", optionlistimretlist.join());
   formData.append(
     "question_text",
